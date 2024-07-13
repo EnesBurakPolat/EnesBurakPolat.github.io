@@ -1,0 +1,94 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem 0;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+header nav ul li {
+    display: inline;
+    margin: 0 1rem;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+header nav ul li a:hover {
+    text-decoration: underline;
+}
+
+.hero {
+    background: url('https://images.pexels.com/photos/259915/pexels-photo-259915.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center/cover;
+    color: #fff;
+    text-align: center;
+    padding: 5rem 1rem;
+    max-width: 1000px; /* Arka planın maksimum genişliği */
+    margin: 0 auto; /* Ortala */
+    border-radius: 10px; /* Köşe yuvarlama */
+    overflow: hidden; /* Arka planın taşmasını engelle */
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin: 0;
+    background-color: rgba(0, 0, 0, 0.6); /* Siyah arka plan, yarı şeffaf */
+    padding: 0.5rem;
+    display: block; /* Blok olarak göster */
+    width: fit-content; /* İçeriğe göre genişlik */
+    margin: 0 auto; /* Ortala */
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    background-color: rgba(0, 0, 0, 0.6); /* Siyah arka plan, yarı şeffaf */
+    padding: 0.5rem;
+    display: block; /* Blok olarak göster */
+    width: fit-content; /* İçeriğe göre genişlik */
+    margin: 0 auto; /* Ortala */
+}
+
+main {
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+main h2 {
+    margin-top: 0;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* About Page Specific Styles */
+.about {
+    max-width: 600px;
+    margin: 2rem auto;
+    background-color: #fff;
+    padding: 2rem;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
