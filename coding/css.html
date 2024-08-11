@@ -5,17 +5,99 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CSS Kodları</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            margin-top: 2rem;
+        }
+        h1 {
+            margin-bottom: 1rem;
+        }
+        .code-block {
+            background: #fff;
+            padding: 1rem;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            overflow-x: auto;
+        }
+        .code-block code {
+            display: block;
+            white-space: pre-wrap;
+        }
+        .section {
+            margin-bottom: 2rem;
+        }
+        .section h2 {
+            margin-bottom: 1rem;
+        }
+        .section p {
+            margin-bottom: 1rem;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
-    <div class="container mt-5">
-        <h1 class="mb-4">CSS Kodları</h1>
-        <pre><code>body {
+    <div class="container">
+        <h1>CSS Kodları</h1>
+
+        <div class="section">
+            <h2>Temel CSS Özellikleri</h2>
+            <p>CSS (Cascading Style Sheets), web sayfalarının stilini ve düzenini tanımlamak için kullanılan bir dildir. CSS ile renkler, yazı tipleri, boşluklar ve düzenleme gibi birçok stil özelliği ayarlanabilir.</p>
+
+            <h3>Örnek CSS Kodları</h3>
+            <div class="code-block">
+                <code>
+/* CSS kodu örneği */
+body {
     font-family: Arial, sans-serif;
 }
 
 h1 {
     color: blue;
-}</code></pre>
+}
+                </code>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Özellikler ve Kullanım</h2>
+            <p>CSS ile birçok stil özelliği uygulanabilir. İşte bazı temel özellikler:</p>
+            <ul>
+                <li><strong>color</strong>: Metin rengini belirler.</li>
+                <li><strong>background-color</strong>: Arka plan rengini belirler.</li>
+                <li><strong>font-family</strong>: Yazı tipini belirler.</li>
+                <li><strong>margin</strong>: Elemanlar arasında boşluk oluşturur.</li>
+                <li><strong>padding</strong>: Elemanın içindeki boşluğu belirler.</li>
+                <li><strong>border</strong>: Elemanlara sınır ekler.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Mülakat Soruları ve Cevaplar</h2>
+            <h3>Soru 1: CSS nedir ve neden kullanılır?</h3>
+            <p>Cevap: CSS (Cascading Style Sheets), web sayfalarının stilini tanımlamak için kullanılan bir dildir. CSS, HTML içeriğine biçim ve düzen ekler, bu da web sayfalarının daha çekici ve okunabilir olmasını sağlar.</p>
+
+            <h3>Soru 2: CSS seçicileri nedir ve nasıl kullanılır?</h3>
+            <p>Cevap: CSS seçicileri, sayfadaki HTML öğelerini seçmek için kullanılır. Örneğin, <code>p</code> seçicisi tüm paragraf öğelerini, <code>#id</code> seçicisi belirli bir id'ye sahip öğeleri, <code>.class</code> seçicisi belirli bir sınıfa sahip öğeleri seçer.</p>
+
+            <h3>Soru 3: CSS ile bir elemanın yalnızca üst ve alt kenarlarına boşluk eklemek için hangi özellik kullanılır?</h3>
+            <p>Cevap: <code>margin-top</code> ve <code>margin-bottom</code> özellikleri, bir elemanın yalnızca üst ve alt kenarlarına boşluk eklemek için kullanılır.</p>
+
+            <h3>Soru 4: Flexbox nedir ve ne zaman kullanılır?</h3>
+            <p>Cevap: Flexbox, CSS ile esnek ve dinamik düzenler oluşturmak için kullanılan bir düzenleme modelidir. İçerik alanları arasında boşluk dağıtmak, hizalamak ve düzenlemek için kullanılır. Özellikle responsive tasarımlar için uygundur.</p>
+        </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
