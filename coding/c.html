@@ -5,17 +5,131 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>C Kodları</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            margin-top: 2rem;
+        }
+        h1 {
+            margin-bottom: 1rem;
+        }
+        .code-block {
+            background: #fff;
+            padding: 1rem;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            overflow-x: auto;
+        }
+        .code-block code {
+            display: block;
+            white-space: pre-wrap;
+        }
+        .section {
+            margin-bottom: 2rem;
+        }
+        .section h2 {
+            margin-bottom: 1rem;
+        }
+        .section p {
+            margin-bottom: 1rem;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
-    <div class="container mt-5">
-        <h1 class="mb-4">C Kodları</h1>
-        <pre><code>#include &lt;stdio.h&gt;
+    <div class="container">
+        <h1>C Kodları</h1>
+
+        <div class="section">
+            <h2>Temel C Özellikleri</h2>
+            <p>C, 1970'lerde Dennis Ritchie tarafından geliştirilen, genel amaçlı bir programlama dilidir. Sistem programlama, uygulama yazılımı ve gömülü sistemlerde yaygın olarak kullanılır. C'nin temel özellikleri şunlardır:</p>
+            <ul>
+                <li><strong>Fonksiyonel Programlama:</strong> C dili, fonksiyonlar kullanarak kodu yapılandırır.</li>
+                <li><strong>Statik Tip Denetimi:</strong> C, derleme zamanında veri türlerini kontrol eder.</li>
+                <li><strong>Pointer Kullanımı:</strong> Bellek adreslerine doğrudan erişim sağlar.</li>
+                <li><strong>Performans:</strong> Düşük seviyeli işlemler ve yüksek performans sağlar.</li>
+                <li><strong>Kütüphaneler:</strong> Standart kütüphanelerle birçok yerleşik fonksiyon sunar.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Örnek C Kodları</h2>
+            <p>İşte C dilinde yazılmış bazı temel kod örnekleri:</p>
+            
+            <h3>Merhaba Dünya Programı</h3>
+            <div class="code-block">
+                <code>#include &lt;stdio.h&gt;
 
 int main() {
     printf("Merhaba Dünya!");
     return 0;
-}</code></pre>
+}</code>
+            </div>
+
+            <h3>Faktöriyel Hesaplama</h3>
+            <div class="code-block">
+                <code>#include &lt;stdio.h&gt;
+
+int factorial(int n) {
+    if (n == 0)
+        return 1;
+    else
+        return n * factorial(n - 1);
+}
+
+int main() {
+    int num;
+    printf("Bir sayı girin: ");
+    scanf("%d", &num);
+    printf("Faktöriyel: %d\n", factorial(num));
+    return 0;
+}</code>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Mülakat Soruları ve Cevaplar</h2>
+            <h3>Soru 1: C dilinin temel veri türleri nelerdir?</h3>
+            <p>Cevap: C dilinde temel veri türleri şunlardır: <code>int</code>, <code>float</code>, <code>double</code>, <code>char</code>. Bunlar, tam sayılar, kesirli sayılar, büyük kesirli sayılar ve karakterleri temsil eder.</p>
+
+            <h3>Soru 2: Pointer nedir ve nasıl kullanılır?</h3>
+            <p>Cevap: Pointer, bellek adreslerini saklayan bir veri türüdür. Pointer kullanarak bellekteki adreslere erişebilir ve bu adreslerdeki verileri değiştirebiliriz. Örneğin, <code>int *ptr</code> bir tam sayı pointer'ıdır.</p>
+
+            <h3>Soru 3: C dilinde bellek yönetimi nasıl yapılır?</h3>
+            <p>Cevap: C dilinde bellek yönetimi, <code>malloc</code>, <code>calloc</code>, <code>realloc</code> ve <code>free</code> gibi fonksiyonlarla yapılır. <code>malloc</code> ve <code>calloc</code> dinamik bellek tahsis ederken, <code>free</code> bu belleği serbest bırakır.</p>
+
+            <h3>Soru 4: C dilinde fonksiyonlar nasıl tanımlanır ve çağrılır?</h3>
+            <p>Cevap: C dilinde fonksiyonlar <code>return_type function_name(parameters)</code> biçiminde tanımlanır. Fonksiyon çağrısı ise <code>function_name(arguments)</code> şeklinde yapılır. Örneğin:</p>
+            <div class="code-block">
+                <code>int add(int a, int b) {
+    return a + b;
+}
+
+int main() {
+    int result = add(5, 3);
+    printf("Sonuç: %d\n", result);
+    return 0;
+}</code>
+            </div>
+        </div>
     </div>
+
+    <footer>
+        <p>&copy; 2024 Enes Burak Polat Site</p>
+    </footer>
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
