@@ -3,13 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML Kodları</title>
+    <title>HTML Temelleri ve Mülakat Soruları</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            padding-top: 50px;
+        }
+        .code-snippet {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #ced4da;
+        }
+        .faq-section {
+            margin-top: 30px;
+        }
+    </style>
 </head>
 <body>
-    <div class="container mt-5">
-        <h1 class="mb-4">HTML Kodları</h1>
-        <pre><code>&lt;!DOCTYPE html&gt;
+    <div class="container">
+        <h1 class="mb-4">HTML Temel Bilgileri</h1>
+        <p>HTML (HyperText Markup Language), web sayfalarının iskeletini oluşturan bir işaretleme dilidir. HTML, etiketler (tags) kullanarak içeriklerin yapısını belirler. Her etiketin açılış (&lt;tag&gt;) ve kapanış (&lt;/tag&gt;) şekli bulunur.</p>
+        
+        <h2>Temel HTML Yapısı</h2>
+        <pre class="code-snippet"><code>&lt;!DOCTYPE html&gt;
 &lt;html lang="tr"&gt;
 &lt;head&gt;
     &lt;meta charset="UTF-8"&gt;
@@ -20,6 +37,46 @@
     &lt;h1&gt;Merhaba Dünya!&lt;/h1&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
+
+        <h3>Temel HTML Etiketleri</h3>
+        <ul>
+            <li><strong>&lt;html&gt;&lt;/html&gt;:</strong> Tüm HTML belgesini saran kök etiket.</li>
+            <li><strong>&lt;head&gt;&lt;/head&gt;:</strong> Meta veriler, stil dosyaları ve başlık bilgilerini içerir.</li>
+            <li><strong>&lt;title&gt;&lt;/title&gt;:</strong> Sayfanın başlık çubuğunda gözüken başlık.</li>
+            <li><strong>&lt;body&gt;&lt;/body&gt;:</strong> Görünür içeriklerin yer aldığı bölüm.</li>
+            <li><strong>&lt;h1&gt;-&lt;h6&gt;:</strong> Başlık etiketleri. &lt;h1&gt; en büyük, &lt;h6&gt; en küçük başlıktır.</li>
+            <li><strong>&lt;p&gt;&lt;/p&gt;:</strong> Paragraf etiketidir.</li>
+            <li><strong>&lt;a href="url"&gt;&lt;/a&gt;:</strong> Link verme etiketidir.</li>
+            <li><strong>&lt;img src="url" alt="text"&gt;:</strong> Resim ekleme etiketidir.</li>
+            <li><strong>&lt;div&gt;&lt;/div&gt;:</strong> Sayfa düzeninde kullanılan blok etiketidir.</li>
+        </ul>
+
+        <h2>HTML Güvenliği</h2>
+        <p>HTML'in kendisi bir programlama dili olmadığından güvenlik açıkları içermez. Ancak, kullanıcıdan alınan verilerin işlenmesi ve gösterilmesi sırasında dikkatli olunmalıdır. JavaScript ile birleştiğinde, XSS (Cross-Site Scripting) gibi güvenlik açıklarına yol açabilir. Bu yüzden her zaman kullanıcı girdilerini temizlemek (sanitize) önemlidir.</p>
+
+        <div class="faq-section">
+            <h2>HTML Mülakat Soruları</h2>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Soru 1: HTML ve XHTML arasındaki fark nedir?</h5>
+                    <p class="card-text"><strong>Cevap:</strong> HTML esnek bir yapıya sahiptir ve etiketlerin kapanması zorunlu değildir. XHTML ise daha katıdır ve tüm etiketlerin düzgün bir şekilde kapanmasını gerektirir. XHTML, XML tabanlıdır ve HTML'den daha kurallı bir yapıya sahiptir.</p>
+                </div>
+            </div>
+
+            <div class="card mt-3">
+                <div class="card-body">
+                    <h5 class="card-title">Soru 2: HTML5'in yenilikleri nelerdir?</h5>
+                    <p class="card-text"><strong>Cevap:</strong> HTML5 ile gelen yenilikler arasında, &lt;video&gt; ve &lt;audio&gt; etiketleri ile multimedya desteği, &lt;canvas&gt; etiketi ile 2D çizimler, ve semantik etiketler (&lt;article&gt;, &lt;section&gt;, &lt;nav&gt;, &lt;footer&gt; gibi) yer almaktadır. Ayrıca HTML5, localStorage ve sessionStorage gibi client-side depolama özellikleri de sunar.</p>
+                </div>
+            </div>
+
+            <div class="card mt-3">
+                <div class="card-body">
+                    <h5 class="card-title">Soru 3: HTML'de inline ve block elementler arasındaki fark nedir?</h5>
+                    <p class="card-text"><strong>Cevap:</strong> Inline elementler (örneğin &lt;span&gt;, &lt;a&gt;) yan yana dizilir ve sadece içerdikleri kadar genişler. Block elementler (örneğin &lt;div&gt;, &lt;p&gt;) ise her zaman yeni bir satırdan başlar ve tüm satırı kaplar.</p>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
