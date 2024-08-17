@@ -3,17 +3,164 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JavaScript Kodları</title>
+    <title>JavaScript Eğitim</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .card-header {
+            background-color: #f7c600;
+            color: white;
+        }
+        body {
+            background-color: #f9f9f9;
+        }
+        h1 {
+            color: #f7c600;
+        }
+        pre code {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            display: block;
+        }
+    </style>
 </head>
 <body>
     <div class="container mt-5">
-        <h1 class="mb-4">JavaScript Kodları</h1>
-        <pre><code>function greet(name) {
-    alert('Merhaba, ' + name);
+        <h1 class="mb-4">JavaScript Temel Eğitim</h1>
+        
+        <!-- Bölüm: Giriş -->
+        <div class="card mb-4">
+            <div class="card-header">JavaScript'e Giriş</div>
+            <div class="card-body">
+                <p>JavaScript, web sayfalarına etkileşim eklemek için kullanılan bir programlama dilidir. Tarayıcıda çalışır ve dinamik içeriği yönetmek için kullanılır.</p>
+                <pre><code>console.log("Merhaba Dünya!");</code></pre>
+            </div>
+        </div>
+
+        <!-- Bölüm: Değişkenler ve Veri Tipleri -->
+        <div class="card mb-4">
+            <div class="card-header">Değişkenler ve Veri Tipleri</div>
+            <div class="card-body">
+                <p>JavaScript'te değişkenler `var`, `let`, ve `const` anahtar kelimeleri ile tanımlanabilir. Veri tipleri arasında string, number, boolean ve object bulunur.</p>
+                <pre><code>let isim = "Ali";
+const yas = 30;
+let dogruMu = true;
+let kisi = { ad: "Ali", yas: 30 };</code></pre>
+            </div>
+        </div>
+
+        <!-- Bölüm: Karar Yapıları -->
+        <div class="card mb-4">
+            <div class="card-header">Karar Yapıları</div>
+            <div class="card-body">
+                <p>JavaScript'te karar yapıları, belirli koşullara göre farklı kod bloklarının çalışmasını sağlar.</p>
+                <pre><code>if (yas > 18) {
+    console.log("Yetişkin");
+} else {
+    console.log("Çocuk");
+}</code></pre>
+            </div>
+        </div>
+
+        <!-- Bölüm: Döngüler -->
+        <div class="card mb-4">
+            <div class="card-header">Döngüler</div>
+            <div class="card-body">
+                <p>Döngüler, bir kod bloğunu belirli bir sayıda veya belirli bir koşul sağlanana kadar tekrar eder.</p>
+                <h3>for Döngüsü</h3>
+                <pre><code>for (let i = 0; i < 5; i++) {
+    console.log(i);
+}</code></pre>
+                <h3>while Döngüsü</h3>
+                <pre><code>let i = 0;
+while (i < 5) {
+    console.log(i);
+    i++;
+}</code></pre>
+            </div>
+        </div>
+
+        <!-- Bölüm: Fonksiyonlar -->
+        <div class="card mb-4">
+            <div class="card-header">Fonksiyonlar</div>
+            <div class="card-body">
+                <p>JavaScript'te fonksiyonlar, belirli bir işlevi yerine getiren kod bloklarıdır. `function` anahtar kelimesi ile tanımlanır.</p>
+                <pre><code>function selamla(isim) {
+    return "Merhaba, " + isim + "!";
 }
 
-greet('Dünya');</code></pre>
+console.log(selamla("Ali"));</code></pre>
+            </div>
+        </div>
+
+        <!-- Bölüm: Diziler -->
+        <div class="card mb-4">
+            <div class="card-header">Diziler</div>
+            <div class="card-body">
+                <p>Diziler, birden fazla değeri tek bir değişkende saklamayı sağlar. JavaScript'te diziler sıfırdan başlayan indekslerle erişilir.</p>
+                <pre><code>let meyveler = ["Elma", "Armut", "Muz"];
+console.log(meyveler[0]); // Elma</code></pre>
+            </div>
+        </div>
+
+        <!-- Bölüm: Nesne Yönelimli Programlama (OOP) -->
+        <div class="card mb-4">
+            <div class="card-header">Nesne Yönelimli Programlama (OOP)</div>
+            <div class="card-body">
+                <p>JavaScript, nesne yönelimli programlamayı destekler. Nesneler, özellikler (properties) ve metotlar (methods) içerir.</p>
+                <pre><code>class Kisi {
+    constructor(ad, yas) {
+        this.ad = ad;
+        this.yas = yas;
+    }
+
+    tanit() {
+        return `Adım ${this.ad} ve yaşım ${this.yas}`;
+    }
+}
+
+let kisi = new Kisi("Ali", 30);
+console.log(kisi.tanit());</code></pre>
+            </div>
+        </div>
+
+        <!-- Bölüm: Hata Ayıklama ve İstisna Yönetimi -->
+        <div class="card mb-4">
+            <div class="card-header">Hata Ayıklama ve İstisna Yönetimi</div>
+            <div class="card-body">
+                <p>JavaScript'te hata ayıklama ve istisna yönetimi, `try`, `catch` ve `finally` blokları kullanılarak yapılır.</p>
+                <pre><code>try {
+    throw new Error("Bir hata oluştu!");
+} catch (e) {
+    console.error(e.message);
+} finally {
+    console.log("Hata ayıklama tamamlandı.");
+}</code></pre>
+            </div>
+        </div>
+
+        <!-- Bölüm: JavaScript Mülakat Soruları -->
+        <div class="card mb-4">
+            <div class="card-header">JavaScript Mülakat Soruları</div>
+            <div class="card-body">
+                <h3>Soru 1: JavaScript nedir?</h3>
+                <p>JavaScript, web sayfalarını dinamik hale getiren ve etkileşimli kullanıcı arayüzleri oluşturan bir programlama dilidir.</p>
+                
+                <h3>Soru 2: `var`, `let`, ve `const` arasındaki fark nedir?</h3>
+                <p>`var`, ES5'te tanımlanmıştır ve fonksiyon kapsamına sahiptir. `let` ve `const` ES6'da tanımlanmış olup, blok kapsamına sahiptir. `const` değişmez değişkenler için kullanılır.</p>
+
+                <h3>Soru 3: JavaScript'te bir fonksiyon nasıl tanımlanır?</h3>
+                <p>Fonksiyonlar `function` anahtar kelimesi ile tanımlanır ve bir isim, parametre listesi ve gövde içerir.</p>
+                
+                <h3>Soru 4: JavaScript'te diziler nasıl tanımlanır ve kullanılır?</h3>
+                <p>Diziler köşeli parantezler (`[]`) kullanılarak tanımlanır ve indeksleme ile erişilir.</p>
+
+                <h3>Soru 5: JavaScript'te `this` anahtar kelimesi ne işe yarar?</h3>
+                <p>`this`, bir nesnenin veya fonksiyonun çağrıldığı bağlama referans verir. O nesnenin veya fonksiyonun bağlamını belirtir.</p>
+            </div>
+        </div>
+
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
