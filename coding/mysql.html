@@ -3,30 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MySQL Kodları</title>
+    <title>MySQL Eğitim</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .card-header {
+            background-color: #6c757d;
+            color: white;
+        }
+        body {
+            background-color: #e9ecef;
+        }
+        h1 {
+            color: #6c757d;
+        }
+        pre code {
+            background-color: #343a40;
+            color: #e9ecef;
+            padding: 15px;
+            border-radius: 5px;
+            display: block;
+        }
+    </style>
 </head>
 <body>
     <div class="container mt-5">
-        <h1 class="mb-4">MySQL Kodları</h1>
-        <pre><code>-- Veritabanı oluşturma
+        <h1 class="mb-4">MySQL Temel Eğitim</h1>
+        
+        <!-- Bölüm: Giriş -->
+        <div class="card mb-4">
+            <div class="card-header">MySQL'e Giriş</div>
+            <div class="card-body">
+                <p>MySQL, açık kaynaklı bir veritabanı yönetim sistemidir. Veri saklama, düzenleme ve sorgulama işlemleri için kullanılır.</p>
+                <pre><code>-- MySQL'e bağlanma
+mysql -u root -p</code></pre>
+            </div>
+        </div>
+
+        <!-- Bölüm: Veritabanı Oluşturma -->
+        <div class="card mb-4">
+            <div class="card-header">Veritabanı Oluşturma</div>
+            <div class="card-body">
+                <p>Veritabanı oluşturmak için `CREATE DATABASE` komutu kullanılır.</p>
+                <pre><code>-- Veritabanı oluşturma
 CREATE DATABASE my_database;
 
 -- Veritabanını kullanma
-USE my_database;
+USE my_database;</code></pre>
+            </div>
+        </div>
 
--- Tablo oluşturma
+        <!-- Bölüm: Tablo Oluşturma -->
+        <div class="card mb-4">
+            <div class="card-header">Tablo Oluşturma</div>
+            <div class="card-body">
+                <p>Tablo oluşturmak için `CREATE TABLE` komutu kullanılır. Tablo yapısı ve sütunlar tanımlanır.</p>
+                <pre><code>-- Tablo oluşturma
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL
-);
+);</code></pre>
+            </div>
+        </div>
 
--- Veri ekleme
-INSERT INTO users (name, email) VALUES ('Ali Veli', 'ali.veli@example.com');
+        <!-- Bölüm: Veri Ekleme -->
+        <div class="card mb-4">
+            <div class="card-header">Veri Ekleme</div>
+            <div class="card-body">
+                <p>Veri eklemek için `INSERT INTO` komutu kullanılır. Belirtilen tabloya veri eklenir.</p>
+                <pre><code>-- Veri ekleme
+INSERT INTO users (name, email) VALUES ('Ali Veli', 'ali.veli@example.com');</code></pre>
+            </div>
+        </div>
 
--- Veri sorgulama
+        <!-- Bölüm: Veri Sorgulama -->
+        <div class="card mb-4">
+            <div class="card-header">Veri Sorgulama</div>
+            <div class="card-body">
+                <p>Veri sorgulamak için `SELECT` komutu kullanılır. Belirli bir tablodan veri çekilir.</p>
+                <pre><code>-- Veri sorgulama
 SELECT * FROM users;</code></pre>
+            </div>
+        </div>
+
+        <!-- Bölüm: Güncelleme ve Silme -->
+        <div class="card mb-4">
+            <div class="card-header">Güncelleme ve Silme</div>
+            <div class="card-body">
+                <p>Veri güncelleme ve silme işlemleri için sırasıyla `UPDATE` ve `DELETE` komutları kullanılır.</p>
+                <h3>Güncelleme</h3>
+                <pre><code>-- Veri güncelleme
+UPDATE users
+SET email = 'yeni.email@example.com'
+WHERE name = 'Ali Veli';</code></pre>
+                <h3>Silme</h3>
+                <pre><code>-- Veri silme
+DELETE FROM users
+WHERE name = 'Ali Veli';</code></pre>
+            </div>
+        </div>
+
+        <!-- Bölüm: MySQL Mülakat Soruları -->
+        <div class="card mb-4">
+            <div class="card-header">MySQL Mülakat Soruları</div>
+            <div class="card-body">
+                <h3>Soru 1: MySQL nedir?</h3>
+                <p>MySQL, açık kaynaklı bir veritabanı yönetim sistemidir. Verileri saklamak, yönetmek ve sorgulamak için kullanılır.</p>
+                
+                <h3>Soru 2: `PRIMARY KEY` nedir?</h3>
+                <p>`PRIMARY KEY`, bir tablodaki her satırı benzersiz olarak tanımlayan bir sütun veya sütunlar grubudur.</p>
+
+                <h3>Soru 3: `FOREIGN KEY` nedir?</h3>
+                <p>`FOREIGN KEY`, bir tablodaki bir sütunun başka bir tablodaki `PRIMARY KEY` veya `UNIQUE` sütununa referans vermesidir.</p>
+                
+                <h3>Soru 4: MySQL'de veri güncelleme nasıl yapılır?</h3>
+                <p>Veri güncelleme için `UPDATE` komutu kullanılır ve güncellenmek istenen sütunlar belirlenir.</p>
+
+                <h3>Soru 5: MySQL'de veri silme nasıl yapılır?</h3>
+                <p>Veri silme için `DELETE` komutu kullanılır ve silinmek istenen veri için bir koşul belirtilir.</p>
+            </div>
+        </div>
+
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
