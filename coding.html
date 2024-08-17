@@ -14,11 +14,38 @@
             font-size: 1.5rem;
             font-weight: bold;
         }
+        .custom-navbar {
+            background-color: #343a40;
+            color: white;
+        }
+        .custom-navbar a {
+            color: white;
+            font-weight: bold;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .custom-navbar a:hover {
+            background-color: #495057;
+            color: #f8f9fa;
+        }
+        .btn-custom {
+            background-color: #007bff;
+            color: white;
+            border-radius: 50px;
+            padding: 10px 20px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+        .btn-custom:hover {
+            background-color: #0056b3;
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+        }
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand" href="index.html">Anasayfa</a>
+    <nav class="navbar navbar-light custom-navbar">
+        <a class="navbar-brand btn btn-custom" href="index.html">Anasayfa</a>
     </nav>
     <div class="container mt-5">
         <h1 class="text-center mb-5">Kodlama Kategorileri</h1>
