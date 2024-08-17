@@ -3,13 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>React Kodları</title>
+    <title>React Eğitim</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .card-header {
+            background-color: #58c4dc;
+            color: white;
+        }
+        body {
+            background-color: #f8f9fa;
+        }
+        h1 {
+            color: #58c4dc;
+        }
+        pre code {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            display: block;
+        }
+    </style>
 </head>
 <body>
     <div class="container mt-5">
-        <h1 class="mb-4">React Kodları</h1>
-        <pre><code>import React from 'react';
+        <h1 class="mb-4">React Temel Eğitim</h1>
+        
+        <!-- Bölüm: Giriş -->
+        <div class="card mb-4">
+            <div class="card-header">React'a Giriş</div>
+            <div class="card-body">
+                <p>React, kullanıcı arayüzleri oluşturmak için kullanılan açık kaynaklı bir JavaScript kütüphanesidir. Facebook tarafından geliştirilmiştir ve bileşen bazlı bir yapı sunar.</p>
+                <pre><code>import React from 'react';
 
 function App() {
     return (
@@ -20,6 +45,146 @@ function App() {
 }
 
 export default App;</code></pre>
+            </div>
+        </div>
+
+        <!-- Bölüm: Bileşenler -->
+        <div class="card mb-4">
+            <div class="card-header">Bileşenler</div>
+            <div class="card-body">
+                <p>React'te bileşenler, UI parçalarını tanımlar. Bileşenler işlevsel (fonksiyonel) ya da sınıf tabanlı olabilir.</p>
+                <h3>Fonksiyonel Bileşen</h3>
+                <pre><code>function Merhaba() {
+    return &lt;h2&gt;Merhaba!&lt;/h2&gt;;
+}</code></pre>
+                <h3>Sınıf Bileşeni</h3>
+                <pre><code>class Merhaba extends React.Component {
+    render() {
+        return &lt;h2&gt;Merhaba!&lt;/h2&gt;;
+    }
+}</code></pre>
+            </div>
+        </div>
+
+        <!-- Bölüm: Props ve State -->
+        <div class="card mb-4">
+            <div class="card-header">Props ve State</div>
+            <div class="card-body">
+                <p>Props, bileşenlere veri geçişi yapmak için kullanılırken, state bileşenlerin kendi iç durumunu yönetir.</p>
+                <h3>Props Örneği</h3>
+                <pre><code>function Kullanici(props) {
+    return &lt;p&gt;Merhaba, {props.isim}!&lt;/p&gt;;
+}
+
+// Kullanım
+&lt;Kullanici isim="Ali" /&gt;</code></pre>
+                <h3>State Örneği</h3>
+                <pre><code>class Sayac extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { sayi: 0 };
+    }
+
+    artir = () => {
+        this.setState({ sayi: this.state.sayi + 1 });
+    };
+
+    render() {
+        return (
+            &lt;div&gt;
+                &lt;p&gt;Sayı: {this.state.sayi}&lt;/p&gt;
+                &lt;button onClick={this.artir}&gt;Arttır&lt;/button&gt;
+            &lt;/div&gt;
+        );
+    }
+}</code></pre>
+            </div>
+        </div>
+
+        <!-- Bölüm: Etkinlikler -->
+        <div class="card mb-4">
+            <div class="card-header">Etkinlikler</div>
+            <div class="card-body">
+                <p>React'te, kullanıcı etkileşimleri yönetmek için etkinlik işleyicileri kullanılır. `onClick`, `onChange` gibi olaylar bu işlev için kullanılır.</p>
+                <pre><code>function EtkinlikOrnek() {
+    const [mesaj, setMesaj] = React.useState('');
+
+    const handleClick = () => {
+        setMesaj('Butona tıklandı!');
+    };
+
+    return (
+        &lt;div&gt;
+            &lt;button onClick={handleClick}&gt;Tıkla&lt;/button&gt;
+            &lt;p&gt;{mesaj}&lt;/p&gt;
+        &lt;/div&gt;
+    );
+}</code></pre>
+            </div>
+        </div>
+
+        <!-- Bölüm: Formlar -->
+        <div class="card mb-4">
+            <div class="card-header">Formlar</div>
+            <div class="card-body">
+                <p>Formlar, kullanıcıdan veri toplamak için kullanılır. React'te form işleme ve veri yönetimi `onChange` gibi olaylarla yapılır.</p>
+                <pre><code>function FormOrnek() {
+    const [girdi, setGirdi] = React.useState('');
+
+    const handleChange = (event) => {
+        setGirdi(event.target.value);
+    };
+
+    return (
+        &lt;div&gt;
+            &lt;input type="text" value={girdi} onChange={handleChange} /&gt;
+            &lt;p&gt;Girdi: {girdi}&lt;/p&gt;
+        &lt;/div&gt;
+    );
+}</code></pre>
+            </div>
+        </div>
+
+        <!-- Bölüm: Listeleme -->
+        <div class="card mb-4">
+            <div class="card-header">Listeleme</div>
+            <div class="card-body">
+                <p>React'te listeleme, dinamik içerik görüntülemek için `map` fonksiyonu kullanılarak yapılır.</p>
+                <pre><code>function ListeOrnek() {
+    const meyveler = ['Elma', 'Armut', 'Muz'];
+
+    return (
+        &lt;ul&gt;
+            {meyveler.map((meyve, index) =&gt; (
+                &lt;li key={index}&gt;{meyve}&lt;/li&gt;
+            ))}
+        &lt;/ul&gt;
+    );
+}</code></pre>
+            </div>
+        </div>
+
+        <!-- Bölüm: React Mülakat Soruları -->
+        <div class="card mb-4">
+            <div class="card-header">React Mülakat Soruları</div>
+            <div class="card-body">
+                <h3>Soru 1: React nedir?</h3>
+                <p>React, kullanıcı arayüzleri oluşturmak için kullanılan bir JavaScript kütüphanesidir. Bileşen bazlı ve hızlı bir şekilde dinamik arayüzler geliştirmeyi sağlar.</p>
+                
+                <h3>Soru 2: `props` nedir?</h3>
+                <p>`props`, bileşenlere veri geçişi yapmak için kullanılan bir mekanizmadır. Bir bileşene dışarıdan veri gönderilir.</p>
+
+                <h3>Soru 3: `state` nedir?</h3>
+                <p>`state`, bileşenlerin kendi iç durumunu yönetir ve bu durum değiştiğinde bileşenin yeniden render edilmesini sağlar.</p>
+                
+                <h3>Soru 4: React'te etkinlikler nasıl işlenir?</h3>
+                <p>React'te etkinlikler, `onClick`, `onChange` gibi olay işleyiciler kullanılarak işlenir. Bu işleyiciler, kullanıcı etkileşimlerine yanıt verir.</p>
+
+                <h3>Soru 5: React'te form verileri nasıl işlenir?</h3>
+                <p>React'te form verileri, `onChange` gibi olaylarla işlenir ve bu veriler `state` kullanılarak yönetilir.</p>
+            </div>
+        </div>
+
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
