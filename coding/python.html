@@ -3,23 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Python Kodları</title>
+    <title>Python Eğitim</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .card-header {
+            background-color: #28a745;
+            color: white;
+        }
+        body {
+            background-color: #f8f9fa;
+        }
+        h1 {
+            color: #28a745;
+        }
+        pre code {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            display: block;
+        }
+    </style>
 </head>
 <body>
     <div class="container mt-5">
-        <h1 class="mb-4">Python Kodları</h1>
-        <pre><code>def merhaba_dunya():
+        <h1 class="mb-4">Python Temel Eğitim</h1>
+        
+        <!-- Bölüm: Giriş -->
+        <div class="card mb-4">
+            <div class="card-header">Python'a Giriş</div>
+            <div class="card-body">
+                <p>Python, yüksek seviyeli ve dinamik bir programlama dilidir. Kolay öğrenilebilirliği ve geniş kütüphane desteği ile bilinir. Python, web geliştirme, veri analizi, yapay zeka ve daha birçok alanda kullanılır.</p>
+                <pre><code>def merhaba_dunya():
     print("Merhaba Dünya!")
 
-merhaba_dunya()
+merhaba_dunya()</code></pre>
+            </div>
+        </div>
 
-# Bir liste ile örnek
-liste = [1, 2, 3, 4, 5]
+        <!-- Bölüm: Değişkenler ve Veri Tipleri -->
+        <div class="card mb-4">
+            <div class="card-header">Değişkenler ve Veri Tipleri</div>
+            <div class="card-body">
+                <p>Python'da veri tipleri dinamik olarak belirlenir. Temel veri tipleri arasında int, float, str ve bool bulunur. Python'da değişkenler türlerini belirtmeden tanımlanabilir.</p>
+                <pre><code>sayi = 10
+ondalik = 5.5
+metin = "Merhaba"
+dogru_mu = True</code></pre>
+            </div>
+        </div>
+
+        <!-- Bölüm: Karar Yapıları -->
+        <div class="card mb-4">
+            <div class="card-header">Karar Yapıları</div>
+            <div class="card-body">
+                <p>Python'da karar yapıları if-elif-else ve switch-case yapısını kullanarak programın belirli koşullara göre farklı yollar izlemesini sağlar.</p>
+                <h3>If-Else</h3>
+                <pre><code>sayi = 5
+if sayi > 5:
+    print("Sayi 5'ten büyük.")
+elif sayi == 5:
+    print("Sayi 5'e eşit.")
+else:
+    print("Sayi 5'ten küçük.")</code></pre>
+            </div>
+        </div>
+
+        <!-- Bölüm: Döngüler -->
+        <div class="card mb-4">
+            <div class="card-header">Döngüler</div>
+            <div class="card-body">
+                <p>Döngüler, belirli bir koşul sağlandığı sürece aynı kod bloğunu tekrar tekrar çalıştırır. Python'da for ve while döngüleri bu amaçla kullanılır.</p>
+                <h3>For Döngüsü</h3>
+                <pre><code>liste = [1, 2, 3, 4, 5]
 for num in liste:
-    print(num)
+    print(num)</code></pre>
+                <h3>While Döngüsü</h3>
+                <pre><code>i = 0
+while i < 5:
+    print("Merhaba")
+    i += 1</code></pre>
+            </div>
+        </div>
 
-# Basit bir sınıf örneği
+        <!-- Bölüm: Fonksiyonlar -->
+        <div class="card mb-4">
+            <div class="card-header">Fonksiyonlar</div>
+            <div class="card-body">
+                <p>Fonksiyonlar, belirli bir işlemi gerçekleştirmek üzere tanımlanmış kod bloklarıdır. Python'da fonksiyonlar `def` anahtar kelimesi ile tanımlanır.</p>
+                <pre><code>def topla(a, b):
+    return a + b
+
+sonuc = topla(5, 10)
+print("Sonuç: ", sonuc)</code></pre>
+            </div>
+        </div>
+
+        <!-- Bölüm: Diziler ve Listeler -->
+        <div class="card mb-4">
+            <div class="card-header">Listeler</div>
+            <div class="card-body">
+                <p>Python'da listeler, birden fazla veriyi bir arada saklamak için kullanılır. Listeler dinamik olarak boyutlandırılabilir.</p>
+                <pre><code# Bir liste ile örnek
+liste = [1, 2, 3, 4, 5]
+print("İlk eleman: ", liste[0])</code></pre>
+                <pre><code# Listede dilimleme (slicing) örneği
+alt_liste = liste[1:4]
+print("Alt liste: ", alt_liste)</code></pre>
+            </div>
+        </div>
+
+        <!-- Bölüm: Nesne Yönelimli Programlama (OOP) -->
+        <div class="card mb-4">
+            <div class="card-header">Nesne Yönelimli Programlama (OOP)</div>
+            <div class="card-body">
+                <p>Python, nesne yönelimli programlamayı destekler ve sınıflar, nesneler, kalıtım gibi kavramları içerir.</p>
+                <pre><code# Basit bir sınıf örneği
 class Kisi:
     def __init__(self, ad, yas):
         self.ad = ad
@@ -30,6 +129,65 @@ class Kisi:
 
 kisi = Kisi("Ali", 30)
 print(kisi.tanit())</code></pre>
+            </div>
+        </div>
+
+        <!-- Bölüm: Hata Ayıklama ve İstisna Yönetimi -->
+        <div class="card mb-4">
+            <div class="card-header">Hata Ayıklama ve İstisna Yönetimi</div>
+            <div class="card-body">
+                <p>Python'da hata ayıklama ve istisna yönetimi, `try-except` blokları ile yapılır. Bu bloklar, programın beklenmedik hataları ele almasına yardımcı olur.</p>
+                <pre><code# İstisna yönetimi örneği
+try:
+    sayi = int(input("Bir sayı girin: "))
+    sonuc = 10 / sayi
+    print("Sonuç: ", sonuc)
+except ZeroDivisionError:
+    print("Bir sayı sıfır olamaz!")
+except ValueError:
+    print("Geçersiz bir sayı girdiniz!")
+except Exception as e:
+    print(f"Bir hata oluştu: {e}")</code></pre>
+            </div>
+        </div>
+
+        <!-- Bölüm: Dosya İşlemleri -->
+        <div class="card mb-4">
+            <div class="card-header">Dosya İşlemleri</div>
+            <div class="card-body">
+                <p>Python'da dosya işlemleri, verilerin dosyalara yazılması veya dosyalardan okunması işlemlerini içerir. `open`, `read`, `write` gibi fonksiyonlar bu işlemler için kullanılır.</p>
+                <pre><code# Dosya oluşturma ve yazma
+with open("dosya.txt", "w") as dosya:
+    dosya.write("Merhaba Dosya!")
+
+# Dosya okuma
+with open("dosya.txt", "r") as dosya:
+    icerik = dosya.read()
+    print(icerik)</code></pre>
+            </div>
+        </div>
+
+        <!-- Bölüm: Python Mülakat Soruları -->
+        <div class="card mb-4">
+            <div class="card-header">Python Mülakat Soruları</div>
+            <div class="card-body">
+                <h3>Soru 1: Python nedir?</h3>
+                <p>Python, yüksek seviyeli ve dinamik bir programlama dilidir. Kolay öğrenilebilir ve birçok uygulama alanına sahiptir.</p>
+                
+                <h3>Soru 2: `self` anahtar kelimesi nedir?</h3>
+                <p>`self`, bir sınıfın içindeki metotlara ve özelliklere erişmek için kullanılır. Nesne üzerinde işlem yapmak için kullanılır.</p>
+
+                <h3>Soru 3: Python'da liste ve tuple arasındaki fark nedir?</h3>
+                <p>Liste (`list`), dinamik boyutlu ve değiştirilebilir bir veri yapısıdır. Tuple (`tuple`) ise sabit boyutlu ve değiştirilemez bir veri yapısıdır.</p>
+                
+                <h3>Soru 4: Python'da `with` ifadesinin amacı nedir?</h3>
+                <p>`with` ifadesi, dosya gibi kaynakları kullanırken otomatik olarak kaynakları kapatmak için kullanılır. Kaynak yönetimini kolaylaştırır.</p>
+
+                <h3>Soru 5: Python'da `lambda` fonksiyonları nedir?</h3>
+                <p>`lambda` fonksiyonları, kısa ve anonim fonksiyonlar oluşturmak için kullanılır. Bir satırda tanımlanabilirler.</p>
+            </div>
+        </div>
+
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
