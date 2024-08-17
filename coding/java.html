@@ -3,17 +3,240 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Java Kodları</title>
+    <title>Java Eğitim</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .card-header {
+            background-color: #ff4c4c;
+            color: white;
+        }
+        body {
+            background-color: #f8f9fa;
+        }
+        h1 {
+            color: #ff4c4c;
+        }
+        pre code {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            display: block;
+        }
+    </style>
 </head>
 <body>
     <div class="container mt-5">
-        <h1 class="mb-4">Java Kodları</h1>
-        <pre><code>public class Main {
+        <h1 class="mb-4">Java Temel Eğitim</h1>
+        
+        <!-- Bölüm: Giriş -->
+        <div class="card mb-4">
+            <div class="card-header">Java'ya Giriş</div>
+            <div class="card-body">
+                <p>Java, 1995 yılında Sun Microsystems tarafından geliştirilen, nesne yönelimli bir programlama dilidir. Platform bağımsızdır ve "Write Once, Run Anywhere" (Bir kere yaz, her yerde çalıştır) mottosuyla bilinir.</p>
+                <pre><code>public class Main {
     public static void main(String[] args) {
         System.out.println("Merhaba Dünya!");
     }
 }</code></pre>
+            </div>
+        </div>
+
+        <!-- Bölüm: Değişkenler ve Veri Tipleri -->
+        <div class="card mb-4">
+            <div class="card-header">Değişkenler ve Veri Tipleri</div>
+            <div class="card-body">
+                <p>Java'da veri tipleri temel (primitive) ve referans tipler olarak ikiye ayrılır. Temel veri tipleri arasında int, double, char gibi tipler yer alır. Referans tipler ise String ve nesneler gibi daha kompleks veri yapılarıdır.</p>
+                <pre><code>int sayi = 10;
+double ondalik = 5.5;
+String metin = "Merhaba";</code></pre>
+            </div>
+        </div>
+
+        <!-- Bölüm: Karar Yapıları -->
+        <div class="card mb-4">
+            <div class="card-header">Karar Yapıları</div>
+            <div class="card-body">
+                <p>Karar yapıları, programın belirli koşullara göre farklı yollar izlemesini sağlar. Java'da if-else ve switch-case gibi yapılandırmalar bu amaçla kullanılır.</p>
+                <h3>If-Else</h3>
+                <pre><code>int sayi = 5;
+if (sayi > 5) {
+    System.out.println("Sayi 5'ten büyük.");
+} else {
+    System.out.println("Sayi 5'ten küçük veya eşit.");
+}</code></pre>
+
+                <h3>Switch-Case</h3>
+                <pre><code>int gun = 3;
+switch (gun) {
+    case 1:
+        System.out.println("Pazartesi");
+        break;
+    case 2:
+        System.out.println("Salı");
+        break;
+    case 3:
+        System.out.println("Çarşamba");
+        break;
+    default:
+        System.out.println("Geçersiz gün");
+}</code></pre>
+            </div>
+        </div>
+
+        <!-- Bölüm: Döngüler -->
+        <div class="card mb-4">
+            <div class="card-header">Döngüler</div>
+            <div class="card-body">
+                <p>Döngüler, belirli bir koşul sağlandığı sürece aynı kod bloğunu tekrar tekrar çalıştırır. Java'da for, while ve do-while gibi döngüler bulunur.</p>
+                <h3>For Döngüsü</h3>
+                <pre><code>for (int i = 0; i < 5; i++) {
+    System.out.println("Merhaba");
+}</code></pre>
+                <h3>While Döngüsü</h3>
+                <pre><code>int i = 0;
+while (i < 5) {
+    System.out.println("Merhaba");
+    i++;
+}</code></pre>
+                <h3>Do-While Döngüsü</h3>
+                <pre><code>int i = 0;
+do {
+    System.out.println("Merhaba");
+    i++;
+} while (i < 5);</code></pre>
+            </div>
+        </div>
+
+        <!-- Bölüm: Fonksiyonlar -->
+        <div class="card mb-4">
+            <div class="card-header">Fonksiyonlar</div>
+            <div class="card-body">
+                <p>Fonksiyonlar, bir işlemi gerçekleştirmek üzere tanımlanmış kod bloklarıdır. Java'da fonksiyonlar metodlar olarak adlandırılır ve bir sınıf içerisinde tanımlanır.</p>
+                <h3>Fonksiyon Tanımlama ve Çağırma</h3>
+                <pre><code>public static int topla(int a, int b) {
+    return a + b;
+}
+
+public static void main(String[] args) {
+    int sonuc = topla(5, 10);
+    System.out.println("Sonuç: " + sonuc);
+}</code></pre>
+            </div>
+        </div>
+
+        <!-- Bölüm: Diziler -->
+        <div class="card mb-4">
+            <div class="card-header">Diziler</div>
+            <div class="card-body">
+                <p>Diziler, aynı tipteki birden fazla veriyi saklamak için kullanılır. Java'da diziler sabit boyutludur ve bir kez tanımlandıktan sonra boyutu değiştirilemez.</p>
+                <h3>Tek Boyutlu Diziler</h3>
+                <pre><code>int[] sayilar = {1, 2, 3, 4, 5};
+System.out.println("İlk eleman: " + sayilar[0]);</code></pre>
+                <h3>Çok Boyutlu Diziler</h3>
+                <pre><code>int[][] matris = {
+    {1, 2, 3},
+    {4, 5, 6}
+};
+System.out.println("Matris elemanı: " + matris[1][2]);</code></pre>
+            </div>
+        </div>
+
+        <!-- Bölüm: Nesne Yönelimli Programlama (OOP) -->
+        <div class="card mb-4">
+            <div class="card-header">Nesne Yönelimli Programlama (OOP)</div>
+            <div class="card-body">
+                <p>OOP, yazılım geliştirmede verilerin ve fonksiyonların birlikte ele alındığı bir yaklaşımdır. Java, OOP prensiplerini tamamen destekler ve sınıflar, nesneler, kalıtım, çok biçimlilik gibi kavramlar içerir.</p>
+                <h3>Sınıflar ve Nesneler</h3>
+                <pre><code>class Araba {
+    String marka;
+    int hiz;
+    
+    void bilgi() {
+        System.out.println("Marka: " + marka + ", Hız: " + hiz);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Araba araba1 = new Araba();
+        araba1.marka = "BMW";
+        araba1.hiz = 200;
+        araba1.bilgi();
+    }
+}</code></pre>
+            </div>
+        </div>
+
+        <!-- Bölüm: Hata Ayıklama ve İstisna Yönetimi -->
+        <div class="card mb-4">
+            <div class="card-header">Hata Ayıklama ve İstisna Yönetimi</div>
+            <div class="card-body">
+                <p>Hata ayıklama, yazılım geliştirme sürecinde kodun doğru çalışıp çalışmadığını kontrol etmek için yapılan işlemdir. İstisna yönetimi, programda beklenmedik hataların üstesinden gelmek için kullanılır.</p>
+                <h3>İstisnalar (Exceptions)</h3>
+                <pre><code>try {
+    int sayi = 10;
+    if (sayi == 10) {
+        throw new Exception("Hata: Sayi 10 olamaz!");
+    }
+} catch (Exception e) {
+    System.out.println(e.getMessage());
+}</code></pre>
+            </div>
+        </div>
+
+        <!-- Bölüm: Dosya İşlemleri -->
+        <div class="card mb-4">
+            <div class="card-header">Dosya İşlemleri</div>
+            <div class="card-body">
+                <p>Java'da dosya işlemleri, verilerin dosyalara yazılması veya dosyalardan okunması gibi işlemleri içerir. `File`, `FileReader`, `FileWriter` gibi sınıflar bu işlemleri gerçekleştirmek için kullanılır.</p>
+                <pre><code>import java.io.FileWriter;
+import java.io.FileReader;
+
+public class DosyaIslemleri {
+    public static void main(String[] args) {
+        try {
+            // Dosya oluşturma ve yazma
+            FileWriter writer = new FileWriter("dosya.txt");
+            writer.write("Merhaba Dosya!");
+            writer.close();
+
+            // Dosya okuma
+            FileReader reader = new FileReader("dosya.txt");
+            int karakter;
+            while ((karakter = reader.read()) != -1) {
+                System.out.print((char) karakter);
+            }
+            reader.close();
+        } catch (Exception e) {
+            System.out.println("Bir hata oluştu: " + e.getMessage());
+        }
+    }
+}</code></pre>
+            </div>
+        </div>
+
+        <!-- Bölüm: Java Mülakat Soruları -->
+        <div class="card mb-4">
+            <div class="card-header">Java Mülakat Soruları</div>
+            <div class="card-body">
+                <h3>Soru 1: Java nedir?</h3>
+                <p>Java, nesne yönelimli bir programlama dilidir ve platform bağımsızdır.</p>
+                
+                <h3>Soru 2: `final` anahtar kelimesi nedir?</h3>
+                <p>`final` anahtar kelimesi, bir değişkenin değerinin değiştirilemez olduğunu, bir metodun override edilemeyeceğini ve bir sınıfın miras alınamayacağını belirtir.</p>
+
+                <h3>Soru 3: Exception handling (istisna yönetimi) nedir?</h3>
+                <p>Exception handling, programın çalışma sırasında oluşabilecek hataları ele almak ve programın beklenmedik şekilde çökmesini önlemek için kullanılan bir tekniktir.</p>
+                
+                <h3>Soru 4: `static` anahtar kelimesi nedir?</h3>
+                <p>`static` anahtar kelimesi, bir değişken veya metodun sınıf düzeyinde olduğunu ve nesne oluşturmadan erişilebileceğini belirtir.</p>
+
+                <h3>Soru 5: Java'nın platform bağımsız olmasını sağlayan nedir?</h3>
+                <p>Java'nın platform bağımsız olmasını sağlayan şey, Java Sanal Makinesi (JVM) üzerinde çalışmasıdır. JVM, Java kodunu platformdan bağımsız olarak çalıştırır.</p>
+            </div>
+        </div>
+
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
