@@ -3,13 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flask Kodları</title>
+    <title>Flask Eğitim</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .card-header {
+            background-color: #343a40;
+            color: white;
+        }
+        body {
+            background-color: #212529;
+        }
+        h1 {
+            color: #f8f9fa;
+        }
+        pre code {
+            background-color: #000;
+            color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            display: block;
+        }
+    </style>
 </head>
 <body>
     <div class="container mt-5">
-        <h1 class="mb-4">Flask Kodları</h1>
-        <pre><code>from flask import Flask
+        <h1 class="mb-4">Flask Temel Eğitim</h1>
+        
+        <!-- Bölüm: Giriş -->
+        <div class="card mb-4">
+            <div class="card-header">Flask'e Giriş</div>
+            <div class="card-body">
+                <p>Flask, Python ile yazılmış hafif ve esnek bir web framework'üdür. Web uygulamaları geliştirmek için kullanılır.</p>
+                <pre><code># Flask kurulum komutu
+pip install flask</code></pre>
+            </div>
+        </div>
+
+        <!-- Bölüm: Basit Bir Flask Uygulaması -->
+        <div class="card mb-4">
+            <div class="card-header">Basit Bir Flask Uygulaması</div>
+            <div class="card-body">
+                <p>Flask ile basit bir "Merhaba Dünya!" uygulaması oluşturmak için aşağıdaki kodu kullanabilirsiniz:</p>
+                <pre><code>from flask import Flask
 
 app = Flask(__name__)
 
@@ -19,6 +54,81 @@ def home():
 
 if __name__ == '__main__':
     app.run(debug=True)</code></pre>
+            </div>
+        </div>
+
+        <!-- Bölüm: URL Yönlendirmeleri -->
+        <div class="card mb-4">
+            <div class="card-header">URL Yönlendirmeleri</div>
+            <div class="card-body">
+                <p>Flask'te farklı URL yollarına yönlendirme yapmak için `@app.route` dekoratörü kullanılır.</p>
+                <pre><code>@app.route('/hakkinda')
+def hakkinda():
+    return "Hakkında Sayfası"</code></pre>
+            </div>
+        </div>
+
+        <!-- Bölüm: HTML Şablonları -->
+        <div class="card mb-4">
+            <div class="card-header">HTML Şablonları</div>
+            <div class="card-body">
+                <p>Flask, Jinja2 şablon motorunu kullanarak HTML şablonları ile dinamik içerik oluşturmayı destekler.</p>
+                <pre><code>from flask import render_template
+
+@app.route('/merhaba')
+def merhaba():
+    return render_template('merhaba.html', isim='Ali')</code></pre>
+                <p>Örnek HTML şablonu (merhaba.html):</p>
+                <pre><code>&lt;html&gt;
+    &lt;body&gt;
+        Merhaba, {{ isim }}!
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+        </div>
+
+        <!-- Bölüm: Formlar -->
+        <div class="card mb-4">
+            <div class="card-header">Formlar</div>
+            <div class="card-body">
+                <p>Flask ile form verilerini almak için `request` objesi kullanılır.</p>
+                <pre><code>from flask import request
+
+@app.route('/form', methods=['GET', 'POST'])
+def form():
+    if request.method == 'POST':
+        veri = request.form['input']
+        return f"Gelen veri: {veri}"
+    return '''
+        &lt;form method="post"&gt;
+            &lt;input type="text" name="input"&gt;
+            &lt;input type="submit"&gt;
+        &lt;/form&gt;
+    '''</code></pre>
+            </div>
+        </div>
+
+        <!-- Bölüm: Flask Mülakat Soruları -->
+        <div class="card mb-4">
+            <div class="card-header">Flask Mülakat Soruları</div>
+            <div class="card-body">
+                <h3>Soru 1: Flask nedir?</h3>
+                <p>Flask, Python programlama dili ile yazılmış hafif bir web framework'üdür.</p>
+                
+                <h3>Soru 2: Flask ile nasıl bir web uygulaması başlatılır?</h3>
+                <p>Flask ile bir uygulama başlatmak için `Flask` sınıfından bir örnek oluşturulur ve `app.run()` metodu çağrılır.</p>
+
+                <h3>Soru 3: `@app.route` dekoratörü ne işe yarar?</h3>
+                <p>`@app.route` dekoratörü, bir URL yolunu belirli bir fonksiyon ile ilişkilendirir ve bu URL'ye gelen isteklerde ilgili fonksiyon çalıştırılır.</p>
+                
+                <h3>Soru 4: Flask'te nasıl form verisi alınır?</h3>
+                <p>Form verileri `request.form` objesi aracılığıyla alınır.</p>
+
+                <h3>Soru 5: Jinja2 şablon motoru nedir?</h3>
+                <p>Jinja2, Flask tarafından kullanılan bir şablon motorudur ve HTML şablonları ile dinamik içerik oluşturmayı sağlar.</p>
+            </div>
+        </div>
+
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
