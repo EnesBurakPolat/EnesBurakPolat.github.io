@@ -3,21 +3,342 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>C++ Kodları</title>
+    <title>C++ Temel Eğitimi ve Mülakat Soruları</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            color: #343a40;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+        h1, h2, h3 {
+            color: #007bff;
+            font-weight: bold;
+        }
+        .card {
+            margin-bottom: 20px;
+        }
+        .card-header {
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+        }
+        .card-body {
+            background-color: #ffffff;
+            border: 1px solid #007bff;
+        }
+        pre {
+            background-color: #e9ecef;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .accordion-button:not(.collapsed) {
+            color: #007bff;
+            background-color: #e9ecef;
+        }
+    </style>
 </head>
 <body>
-    <div class="container mt-5">
-        <h1 class="mb-4">C++ Kodları</h1>
-        <pre><code>#include &lt;iostream&gt;
+    <div class="container">
+        <h1 class="text-center mb-5">C++ Temel Eğitimi ve Mülakat Soruları</h1>
+
+        <!-- Bölüm: C++'ın Temelleri -->
+        <div class="card">
+            <div class="card-header">C++'ın Temelleri</div>
+            <div class="card-body">
+                <h3>C++ Nedir?</h3>
+                <p>C++, C dilinin üzerine inşa edilmiş, nesne yönelimli, genel amaçlı bir programlama dilidir. C++ dilinin temel özellikleri şunlardır:</p>
+                <ul>
+                    <li>Nesne Yönelimli Programlama</li>
+                    <li>Genel Amaçlı Kullanım</li>
+                    <li>Düşük Seviye Bellek Yönetimi</li>
+                    <li>Geniş Standart Kütüphane</li>
+                </ul>
+                <h3>C++ ile C Arasındaki Farklar</h3>
+                <p>C, yapılandırılmış bir programlama diliyken, C++ nesne yönelimli programlamayı destekler. Ayrıca, C++ dilinde class, constructor ve destructor gibi özellikler vardır.</p>
+            </div>
+        </div>
+
+        <!-- Bölüm: Veri Tipleri ve Değişkenler -->
+        <div class="card">
+            <div class="card-header">Veri Tipleri ve Değişkenler</div>
+            <div class="card-body">
+                <h3>Temel Veri Tipleri</h3>
+                <ul>
+                    <li><strong>int</strong>: Tam sayı veri tipi.</li>
+                    <li><strong>float</strong>: Ondalık sayı veri tipi.</li>
+                    <li><strong>double</strong>: Daha yüksek hassasiyetli ondalık sayı veri tipi.</li>
+                    <li><strong>char</strong>: Tek karakter veri tipi.</li>
+                    <li><strong>bool</strong>: Mantıksal veri tipi (true veya false).</li>
+                </ul>
+                <h3>Değişken Tanımlama ve Başlatma</h3>
+                <pre><code>int sayi = 10;
+float oran = 3.14f;
+char karakter = 'A';</code></pre>
+                <p>Yukarıdaki örneklerde, farklı veri tiplerinde değişkenler tanımlanmış ve başlatılmıştır.</p>
+                <h3>Sabitler (Constants)</h3>
+                <pre><code>const int PI = 3.14159;</code></pre>
+                <p>Yukarıdaki örnekte, PI değişkeni sabit olarak tanımlanmıştır ve değeri değiştirilemez.</p>
+            </div>
+        </div>
+
+        <!-- Bölüm: Operatörler -->
+        <div class="card">
+            <div class="card-header">Operatörler</div>
+            <div class="card-body">
+                <h3>Aritmetik Operatörler</h3>
+                <ul>
+                    <li><strong>+</strong>: Toplama</li>
+                    <li><strong>-</strong>: Çıkarma</li>
+                    <li><strong>*</strong>: Çarpma</li>
+                    <li><strong>/</strong>: Bölme</li>
+                    <li><strong>%</strong>: Mod alma</li>
+                </ul>
+                <h3>Karşılaştırma Operatörleri</h3>
+                <ul>
+                    <li><strong>==</strong>: Eşit mi?</li>
+                    <li><strong>!=</strong>: Eşit değil mi?</li>
+                    <li><strong>></strong>: Büyük mü?</li>
+                    <li><strong><</strong>: Küçük mü?</li>
+                    <li><strong>>=</strong>: Büyük eşit mi?</li>
+                    <li><strong><=</strong>: Küçük eşit mi?</li>
+                </ul>
+                <h3>Mantıksal Operatörler</h3>
+                <ul>
+                    <li><strong>&&</strong>: Ve (And)</li>
+                    <li><strong>||</strong>: Veya (Or)</li>
+                    <li><strong>!</strong>: Değil (Not)</li>
+                </ul>
+                <h3>Bitwise Operatörler</h3>
+                <ul>
+                    <li><strong>&</strong>: Ve (And)</li>
+                    <li><strong>|</strong>: Veya (Or)</li>
+                    <li><strong>^</strong>: Özel veya (Xor)</li>
+                    <li><strong>~</strong>: Ters (Not)</li>
+                    <li><strong><<</strong>: Sol kaydırma (Left Shift)</li>
+                    <li><strong>>></strong>: Sağ kaydırma (Right Shift)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Bölüm: Kontrol Yapıları -->
+        <div class="card">
+            <div class="card-header">Kontrol Yapıları</div>
+            <div class="card-body">
+                <h3>If-Else</h3>
+                <pre><code>int sayi = 10;
+if (sayi > 5) {
+    std::cout << "Sayi 5'ten büyük." << std::endl;
+} else {
+    std::cout << "Sayi 5'ten küçük veya eşit." << std::endl;
+}</code></pre>
+                <h3>Switch-Case</h3>
+                <pre><code>int gun = 3;
+switch (gun) {
+    case 1:
+        std::cout << "Pazartesi" << std::endl;
+        break;
+    case 2:
+        std::cout << "Salı" << std::endl;
+        break;
+    case 3:
+        std::cout << "Çarşamba" << std::endl;
+        break;
+    default:
+        std::cout << "Geçersiz gün" << std::endl;
+}</code></pre>
+                <h3>Döngüler (For, While, Do-While)</h3>
+                <pre><code>for (int i = 0; i < 5; i++) {
+    std::cout << "Merhaba" << std::endl;
+}</code></pre>
+                <p>Yukarıdaki for döngüsü, ekrana beş kez "Merhaba" yazar.</p>
+            </div>
+        </div>
+
+        <!-- Bölüm: Fonksiyonlar -->
+        <div class="card">
+            <div class="card-header">Fonksiyonlar</div>
+            <div class="card-body">
+                <h3>Fonksiyon Tanımlama ve Çağırma</h3>
+                <pre><code>int topla(int a, int b) {
+    return a + b;
+}
 
 int main() {
-    std::cout &lt;&lt; "Merhaba Dünya!" &lt;&lt; std::endl;
+    int sonuc = topla(5, 10);
+    std::cout << "Sonuç: " << sonuc << std::endl;
     return 0;
 }</code></pre>
+                <p>Bu örnekte, topla adında bir fonksiyon tanımlanmış ve main fonksiyonunda çağrılmıştır.</p>
+                <h3>Parametre Geçişi (Call by Value, Call by Reference)</h3>
+                <pre><code>void degistir(int &ref) {
+    ref = 20;
+}
+
+int main() {
+    int sayi = 10;
+    degistir(sayi);
+    std::cout << "Sayi: " << sayi << std::endl;
+    return 0;
+}</code></pre>
+                <p>Bu örnekte, &ref parametresi ile değişken referans yoluyla geçirilmiş ve değeri fonksiyon içinde değiştirilmiştir.</p>
+                <h3>Fonksiyon Overloading</h3>
+                <pre><code>int topla(int a, int b) {
+    return a + b;
+}
+
+double topla(double a, double b) {
+    return a + b;
+}</code></pre>
+                <p>Yukarıdaki örnekte, aynı isimde iki farklı fonksiyon tanımlanmış ancak parametre tipleri farklıdır. Bu duruma "function overloading" denir.</p>
+            </div>
+        </div>
+
+        <!-- Bölüm: Diziler ve Pointerlar -->
+        <div class="card">
+            <div class="card-header">Diziler ve Pointerlar</div>
+            <div class="card-body">
+                <h3>Tek Boyutlu Diziler</h3>
+                <pre><code>int sayilar[5] = {1, 2, 3, 4, 5};
+std::cout << "İlk eleman: " << sayilar[0] << std::endl;</code></pre>
+                <h3>Çok Boyutlu Diziler</h3>
+                <pre><code>int matris[2][3] = {
+    {1, 2, 3},
+    {4, 5, 6}
+};
+std::cout << "Matris elemanı: " << matris[1][2] << std::endl;</code></pre>
+                <h3>Pointerlar ve Pointer Aritmetiği</h3>
+                <pre><code>int sayi = 10;
+int *ptr = &sayi;
+std::cout << "Pointer adresi: " << ptr << std::endl;
+std::cout << "Pointer değeri: " << *ptr << std::endl;</code></pre>
+                <p>Bu örnekte, bir pointer tanımlanmış ve sayi değişkeninin adresi bu pointer'a atanmıştır.</p>
+                <h3>Diziler ve Pointerlar Arasındaki İlişki</h3>
+                <pre><code>int dizi[5] = {10, 20, 30, 40, 50};
+int *ptr = dizi;
+std::cout << "İlk eleman: " << *ptr << std::endl;
+std::cout << "İkinci eleman: " << *(ptr + 1) << std::endl;</code></pre>
+                <p>Pointer'lar ve diziler arasında sıkı bir ilişki vardır. Bir dizi ismi, dizinin ilk elemanının adresini gösterir.</p>
+            </div>
+        </div>
+
+        <!-- Bölüm: Nesne Yönelimli Programlama (OOP) -->
+        <div class="card">
+            <div class="card-header">Nesne Yönelimli Programlama (OOP)</div>
+            <div class="card-body">
+                <h3>Sınıflar ve Nesneler</h3>
+                <pre><code>class Araba {
+public:
+    string marka;
+    int hiz;
+    
+    void bilgi() {
+        std::cout << "Marka: " << marka << ", Hız: " << hiz << std::endl;
+    }
+};
+
+int main() {
+    Araba araba1;
+    araba1.marka = "BMW";
+    araba1.hiz = 200;
+    araba1.bilgi();
+    return 0;
+}</code></pre>
+                <p>Bu örnekte, Araba adında bir sınıf tanımlanmış ve bu sınıftan bir nesne oluşturulmuştur.</p>
+                <h3>Kapsülleme (Encapsulation)</h3>
+                <p>Kapsülleme, sınıfın veri üyelerini private olarak tanımlayıp, bu verilere erişimi public yöntemlerle (get/set fonksiyonları gibi) kontrol etme prensibidir.</p>
+                <h3>Kalıtım (Inheritance)</h3>
+                <pre><code>class Arac {
+public:
+    string renk;
+};
+
+class Araba : public Arac {
+public:
+    int hiz;
+};</code></pre>
+                <p>Yukarıdaki örnekte, Araba sınıfı Arac sınıfından kalıtım almıştır.</p>
+                <h3>Polimorfizm (Polymorphism)</h3>
+                <p>Polimorfizm, aynı işlevin farklı şekillerde gerçekleştirilmesidir. Örneğin, bir base sınıf fonksiyonu, derived sınıfta override edilerek farklı bir işlevsellik kazanabilir.</p>
+                <h3>Abstraction ve Interface</h3>
+                <p>Abstraction, karmaşık sistemleri daha basit ve anlaşılabilir hale getirmek için kullanılan bir tekniktir. Interface ise, bir sınıfın dışarıya nasıl görüneceğini belirleyen bir yapıdır.</p>
+            </div>
+        </div>
+
+        <!-- Bölüm: Standart Şablon Kütüphanesi (STL) -->
+        <div class="card">
+            <div class="card-header">Standart Şablon Kütüphanesi (STL)</div>
+            <div class="card-body">
+                <h3>Vektörler (Vectors)</h3>
+                <pre><code>#include &lt;vector&gt;
+
+std::vector&lt;int&gt; sayilar = {1, 2, 3, 4, 5};
+sayilar.push_back(6);
+std::cout << "İlk eleman: " << sayilar[0] << std::endl;</code></pre>
+                <h3>Listeler (Lists)</h3>
+                <pre><code>#include &lt;list&gt;
+
+std::list&lt;int&gt; sayilar = {1, 2, 3, 4, 5};
+sayilar.push_back(6);
+std::cout << "İlk eleman: " << sayilar.front() << std::endl;</code></pre>
+                <h3>Haritalar (Maps)</h3>
+                <pre><code>#include &lt;map&gt;
+
+std::map&lt;string, int&gt; telefonRehberi;
+telefonRehberi["Ahmet"] = 5551234;
+std::cout << "Ahmet'in numarası: " << telefonRehberi["Ahmet"] << std::endl;</code></pre>
+            </div>
+        </div>
+
+        <!-- Bölüm: Hata Ayıklama ve İstisna Yönetimi -->
+        <div class="card">
+            <div class="card-header">Hata Ayıklama ve İstisna Yönetimi</div>
+            <div class="card-body">
+                <h3>İstisnalar (Exceptions)</h3>
+                <pre><code>try {
+    int sayi = 10;
+    if (sayi == 10) {
+        throw "Hata: Sayi 10 olamaz!";
+    }
+} catch (const char* hata) {
+    std::cout << hata << std::endl;
+}</code></pre>
+                <h3>Assert Makroları</h3>
+                <pre><code>#include &lt;cassert&gt;
+
+int main() {
+    int x = 5;
+    assert(x == 5);
+    return 0;
+}</code></pre>
+            </div>
+        </div>
+
+        <!-- Bölüm: Giriş/Çıkış İşlemleri -->
+        <div class="card">
+            <div class="card-header">Giriş/Çıkış İşlemleri</div>
+            <div class="card-body">
+                <h3>Dosya İşlemleri</h3>
+                <pre><code>#include &lt;fstream&gt;
+
+std::ofstream dosya("deneme.txt");
+dosya &lt;&lt; "Merhaba Dünya!";
+dosya.close();
+
+std::ifstream dosyaOku("deneme.txt");
+std::string satir;
+while (getline(dosyaOku, satir)) {
+    std::cout &lt;&lt; satir &lt;&lt; std::endl;
+}
+dosyaOku.close();</code></pre>
+            </div>
+        </div>
+
     </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
 </html>
