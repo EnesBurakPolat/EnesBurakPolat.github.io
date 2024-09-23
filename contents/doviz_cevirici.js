@@ -9,9 +9,7 @@ document.getElementById('calculate').addEventListener('click', function() {
         const result = amount * exchangeRate; // Hesaplama
 
         // Sonucu biçimlendir (örn: 1.222,43 TL)
-        // Sonucu biçimlendir (örn: 1.222,43 TL)
         const formattedResult = result.toFixed(2).replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-
 
         // Hesaplama geçmişine ekle
         addToHistory(formattedResult);
