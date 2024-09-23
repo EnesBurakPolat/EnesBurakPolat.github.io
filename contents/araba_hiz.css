@@ -92,7 +92,9 @@ main {
     margin-top: 1.5rem;
     color: #007BFF;
     font-weight: bold; /* Sonuç metnini kalın yap */
+    text-align: center; /* Metni ortala */
 }
+
 
 .history {
     background-color: #ffffff;
