@@ -1,5 +1,8 @@
 let historyCount = 0; // Geçmiş sayısını tutacak değişken
 
+// Sonucu başlangıçta gizle
+document.getElementById('result').textContent = '';
+
 document.getElementById('calculate').addEventListener('click', function() {
     const speed = document.getElementById('speed').value;
     const distance = document.getElementById('distance').value;
@@ -10,7 +13,7 @@ document.getElementById('calculate').addEventListener('click', function() {
         const minutes = Math.round((time - hours) * 60); // dakika
 
         const resultText = `${hours} saat ${minutes} dakika`;
-        document.getElementById('result').textContent = resultText;
+        document.getElementById('result').textContent = resultText; // Sonucu göster
 
         // Geçmişe ekle
         historyCount++;
@@ -32,7 +35,7 @@ document.getElementById('clearBottom').addEventListener('click', clearHistory);
 function clearHistory() {
     document.getElementById('speed').value = '';
     document.getElementById('distance').value = '';
-    document.getElementById('result').textContent = '0 saat';
+    document.getElementById('result').textContent = ''; // Sonucu temizle
     document.getElementById('historyList').innerHTML = ''; // Geçmişi temizle
     historyCount = 0; // Geçmiş sayısını sıfırla
 
