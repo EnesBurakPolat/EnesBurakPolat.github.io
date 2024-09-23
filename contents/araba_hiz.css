@@ -1,0 +1,162 @@
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+main {
+    display: flex;
+    flex-direction: column; /* Dikey hizalamak için */
+    align-items: center;
+    min-height: 80vh;
+    padding: 2rem 1rem;
+}
+
+.calculator {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    padding: 2rem;
+    max-width: 400px;
+    width: 100%;
+    margin-bottom: 2rem; /* Alt boşluk */
+    transition: transform 0.3s, box-shadow 0.3s; /* Efekt için */
+}
+
+.calculator:hover {
+    transform: translateY(-5px); /* Hover efekti */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); /* Daha belirgin gölge */
+}
+
+.input-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.input-group input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+    font-size: 1rem;
+    transition: border-color 0.3s; /* Giriş kutuları için geçiş efekti */
+}
+
+.input-group input:focus {
+    border-color: #007BFF; /* Focus durumunda kenarlık rengi */
+}
+
+.btn-calculate {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007BFF;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-calculate:hover {
+    background-color: #0056b3; /* Hover durumu için renk */
+    transform: translateY(-2px); /* Hoverda yukarı kaydır */
+}
+
+.result-text {
+    font-size: 1.2rem;
+    margin-top: 1.5rem;
+    color: #007BFF;
+    font-weight: bold; /* Sonuç metnini kalın yap */
+}
+
+.history {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    max-width: 400px;
+    width: 100%;
+}
+
+.history h3 {
+    margin-top: 0;
+}
+
+.history ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.history li {
+    padding: 5px 0;
+    border-bottom: 1px solid #ddd; /* Alt kenar */
+}
+
+.history li:last-child {
+    border-bottom: none; /* Son eleman için kenar yok */
+}
+
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    background-color: #333;
+    color: #fff;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: 2rem;
+}
+
+--------------------------------------------------------------------
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+header nav ul li {
+    display: inline-block;
+    margin: 0 1rem;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+    color: #ff6f61;
+}
