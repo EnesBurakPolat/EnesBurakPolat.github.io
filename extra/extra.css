@@ -1,0 +1,178 @@
+/* Genel body stilleri */
+body {
+    display: flex;
+    flex-direction: column; /* Dikey hizalama */
+    justify-content: flex-start; /* Üstten başlayarak hizala */
+    margin: 0;
+    background-color: #1a1a1a; /* Daha koyu arka plan rengi */
+    font-family: 'Arial', sans-serif;
+    color: #ffffff; /* Yazılar için beyaz renk */
+}
+
+/* Hesap Makinesi Kart Yapısı */
+.calculator {
+    background-color: #2c2c2c;
+    border-radius: 15px;
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.5);
+    padding: 40px;
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover animasyonu */
+    overflow: hidden; /* Taşan içeriği gizle */
+}
+
+.calculator:hover {
+    transform: translateY(-10px); /* Üzerine gelindiğinde yukarı kayar */
+    box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.8); /* Hover gölgesi */
+}
+
+/* Başlık Stil */
+h1 {
+    color: #f0f0f0;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Kart Yapısı */
+.card {
+    background-color: #333;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden; /* Taşan içeriği gizle */
+    min-height: 350px; /* Kartların minimum yüksekliğini ayarla */
+}
+
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.6);
+}
+
+.card-title {
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.card-text {
+    color: #d3d3d3;
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+/* Oyna Butonu Stili */
+.btn-primary {
+    background-color: #8f129b;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 50px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #53095a;
+    box-shadow: 0px 10px 20px rgba(0, 123, 255, 0.4);
+}
+
+/* Navbar stilleri */
+.navbar {
+    display: flex; /* Flexbox kullanarak içerik hizalaması */
+    justify-content: center; /* Menü öğelerini yatay ortala */
+    position: fixed; /* Ekranın en üst kısmına sabitle */
+    top: 0;
+    width: 100%; /* Tam genişlikte olmasını sağlar */
+    background-color: #1a1a1a; /* Arka plan rengini koyulaştır */
+    z-index: 1000; /* Üstte kalmasını sağlar */
+    padding: 15px 0; /* Daha rahat bir yükseklik için padding eklendi */
+}
+
+.navbar-nav {
+    display: flex; /* Flexbox kullanarak yatay hizalama */
+    gap: 30px; /* Menü öğeleri arasına boşluk ekle */
+}
+
+.nav-item {
+    list-style: none; /* Liste stilini kaldır */
+}
+
+.nav-link {
+    color: #ffffff; /* Yazı rengi beyaz */
+    background-color: #8f129b; /* Arka plan rengini mor yap */
+    padding: 10px 20px; /* Menü öğelerine iç boşluk ekle */
+    font-size: 1rem; /* Yazı boyutunu ayarla */
+    font-weight: bold; /* Yazı kalınlığı */
+    border-radius: 25px; /* Daha yuvarlak köşeler */
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease; /* Geçiş efektleri */
+    text-decoration: none; /* Alt çizgiyi kaldır */
+}
+
+.nav-link:hover {
+    background-color: #53095a; /* Hover'da arka plan rengi değişir */
+    color: #f0f0f0; /* Hover'da yazı rengi daha açık beyaz */
+    transform: scale(1.1); /* Hover'da buton büyür */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Gölge ekle */
+}
+
+/* Anasayfa butonuna özel stil */
+.nav-link.home {
+    background-color: #007bff; /* Anasayfa butonunun rengi */
+    border: 2px solid #0056b3; /* Kenarlık rengi */
+}
+
+.nav-link.home:hover {
+    background-color: #0056b3; /* Hover'da daha koyu bir mavi */
+    color: #ffffff; /* Yazı rengi beyaz kalır */
+}
+
+/* Ana içerik kısmının yukarı kaydırılması */
+main {
+    margin-top: 80px; /* Navbar yüksekliği kadar boşluk bırak */
+    display: flex;
+    justify-content: center; /* Ana içeriği ortala */
+    align-items: center; /* Dikey olarak ortala */
+    flex-direction: column; /* İçeriklerin dikey hizalaması */
+}
+
+/* Footer düzeltmeleri */
+footer {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #1100ff;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+/* Ana içerik kısmının yukarı kaydırılması */
+main {
+    margin-top: 80px; /* Navbar için boşluk bırak */
+}
+
+/* Footer stil ve düzeltmeleri */
+footer {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #1100ff;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+
+.card-img-top {
+    width: 100%; /* Kartın genişliğine göre ayarlama yapar */
+    height: auto; /* Yüksekliği otomatik olarak ayarlar */
+    object-fit: cover; /* Resmin kesilmeden uygun bir şekilde görünmesini sağlar */
+    max-height: 300px; /* Resmin maksimum yüksekliğini ayarlayın */
+}
+
