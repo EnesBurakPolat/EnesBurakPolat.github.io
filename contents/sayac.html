@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yeni Yıl Geri Sayımı</title>
+    <link rel="stylesheet" href="../contents/sayac.css">
+    <script src="sayac.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Anasayfa</a></li>
+                <li><a href="../about.html">Hakkımda</a></li>
+                <li><a href="../coding.html">Kodlama</a></li>
+                <li><a href="../extra/extra.html">Extra</a></li>
+                <li><a href="https://github.com/EnesBurakPolat" target="_blank">Github</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="countdown-section">
+            <div id="countdown">
+                <div class="countdown-item">
+                    <span id="days">00</span>
+                    <p>Days</p>
+                </div>
+                <div class="countdown-item">
+                    <span id="hours">00</span>
+                    <p>Hours</p>
+                </div>
+                <div class="countdown-item">
+                    <span id="minutes">00</span>
+                    <p>Minutes</p>
+                </div>
+                <div class="countdown-item">
+                    <span id="seconds">00</span>
+                    <p>Seconds</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Progress Bar -->
+        <section class="progress-section">
+            <div id="progressContainer" style="width: 100%; background-color: #f3f3f3; height: 25px; margin-top: 20px;">
+                <div id="progressFill" style="width: 0%; background-color: #4caf50; height: 100%;"></div>
+            </div>
+            <p id="progressPercentage" style="text-align: center; margin-top: 10px;">Progress: 0.00%</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Enes Burak Polat Site</p>
+    </footer>
+</body>
+</html>
