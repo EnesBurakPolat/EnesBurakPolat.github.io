@@ -1,0 +1,121 @@
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+header nav ul li {
+    display: inline-block;
+    margin: 0 1rem;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+    color: #ff6f61;
+}
+
+main {
+    display: flex;
+    justify-content: center; /* Ortada hizalama */
+    align-items: center;
+    min-height: 80vh;
+}
+
+.calculator {
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    width: 480px; /* Genişliği artırdım */
+    height: 500px; /* Yüksekliği artırdım */
+}
+
+.display {
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    text-align: right; /* Sonucu sağa hizalama */
+    height: 70px; /* Yüksekliği artırdım */
+    font-size: 28px; /* Yazı boyutunu artırdım */
+}
+
+#result {
+    width: 100%;
+    height: 50px;
+    border: none;
+    background-color: transparent;
+    font-size: 24px;
+    outline: none; /* Kenar çizgisini kaldır */
+    padding: 5px;
+    text-align: right; /* Sayıyı sağa hizala */
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.btn {
+    padding: 25px; /* Butonun iç boşluğunu artırdım */
+    border: none;
+    border-radius: 10px;
+    font-size: 20px; /* Font boyutunu artırdım */
+    cursor: pointer;
+    transition: background-color 0.3s;
+    height: 70px; /* Buton yüksekliğini artırdım */
+}
+
+.gray {
+    background-color: #e0e0e0;
+}
+
+.yellow {
+    background-color: #f9c74f;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+#datetime {
+    font-size: 12px;
+    text-align: right;
+    margin-bottom: 5px;
+}
+
+footer {
+    text-align: center; /* Yazıyı yatayda ortalar */
+    padding: 20px; /* İçerik ile kenar arasında boşluk bırakır */
+    background-color: #333333; /* İsteğe bağlı arka plan rengi */
+}
+
+footer p {
+    color: #ffffff; /* Yazı rengini beyaz yap */
+}

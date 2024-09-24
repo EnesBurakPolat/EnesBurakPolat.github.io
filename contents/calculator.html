@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../contents/calculator.css">
+    <script src="calculator.js" defer></script>
+    <title>Hesap Makinesi</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Anasayfa</a></li>
+                <li><a href="../about.html">Hakkımda</a></li>
+                <li><a href="../coding.html">Kodlama</a></li>
+                <li><a href="../extra/extra.html">Extra</a></li>
+                <li><a href="https://github.com/EnesBurakPolat" target="_blank">Github</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="calculator">
+            <div class="display">
+                <div id="datetime"></div>
+                <input type="text" id="result" disabled />
+            </div>
+            <div class="buttons">
+                <button class="btn" onclick="clearResult()">AC</button>
+                <button class="btn" onclick="toggleSign()">+/-</button>
+                <button class="btn" onclick="squareResult()">x²</button>
+                <button class="btn yellow" onclick="appendToResult('/')">÷</button>
+                <button class="btn gray" onclick="appendToResult('7')">7</button>
+                <button class="btn gray" onclick="appendToResult('8')">8</button>
+                <button class="btn gray" onclick="appendToResult('9')">9</button>
+                <button class="btn yellow" onclick="appendToResult('*')">x</button> <!-- Burada x kullanıyoruz, ama javascript'te * kullanacağız -->
+                <button class="btn gray" onclick="appendToResult('4')">4</button>
+                <button class="btn gray" onclick="appendToResult('5')">5</button>
+                <button class="btn gray" onclick="appendToResult('6')">6</button>
+                <button class="btn yellow" onclick="appendToResult('-')">-</button>
+                <button class="btn gray" onclick="appendToResult('1')">1</button>
+                <button class="btn gray" onclick="appendToResult('2')">2</button>
+                <button class="btn gray" onclick="appendToResult('3')">3</button>
+                <button class="btn yellow" onclick="appendToResult('+')">+</button>
+                <button class="btn gray" onclick="appendToResult('0')" style="width: 200%;">0</button>
+                <button class="btn gray" onclick="appendToResult('0')" style="width: 100%;"></button>
+                <button class="btn gray" onclick="appendToResult('.')">.</button>
+                <button class="btn yellow" onclick="calculateResult()">=</button>
+                
+                
+                
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+
+    <footer>
+        <p>&copy; 2024 Enes Burak Polat Site</p>
+    </footer>
+
+</body>
+</html>
