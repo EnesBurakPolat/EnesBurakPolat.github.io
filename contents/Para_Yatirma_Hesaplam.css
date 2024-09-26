@@ -1,0 +1,119 @@
+/* Genel ayarlar */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+    box-sizing: border-box;
+}
+
+/* Tüm elemanlara box-sizing uygulayarak genişliği tam kontrol altında tutma */
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+/* Header ve navigasyon menüsü */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+header nav ul li {
+    display: inline-block;
+    margin: 0 1rem;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+    color: #ff6f61;
+}
+
+/* Form ve hesaplama alanları */
+.container {
+    background-color: white;
+    padding: 20px;
+    margin: 30px auto;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+/* Form elemanları için düzenleme */
+.form-group {
+    margin-bottom: 15px;
+    text-align: left; /* Etiketleri sola yaslamak için */
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-align: left;
+}
+
+/* Genişliği optimize etmek ve taşmayı önlemek için */
+input[type="number"] {
+    width: 100%; /* Genişlik 100% yapılarak tam olarak kapsayıcıya sığdırılır */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+/* Odaklanma durumu için */
+input[type="number"]:focus {
+    border-color: #333;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #ff6f61;
+}
+
+/* Sonuç alanı düzenlemesi */
+.result-group {
+    margin-top: 15px;
+    font-size: 1.1rem;
+}
