@@ -1,0 +1,215 @@
+/* Genel stiller */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #3a3a3a; /* Koyu gri arka plan */
+}
+
+/* Header stilleri */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem; /* Daha az padding */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+header nav ul li {
+    display: inline-block;
+    margin: 0 1rem;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+    color: #ff6f61;
+}
+
+/* Ana içerik düzeni */
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 2rem;
+    flex-wrap: wrap; /* Esneklik için ekleme */
+}
+
+.container > *:not(#historyContainer) {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column; /* Dikey hizalama */
+}
+
+/* Sağ içerik (Geçmiş çeviri kısmı) */
+#historyContainer {
+    margin-left: 2rem; 
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 8px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#historyContainer h2 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    background-color: #000;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#historyList {
+    width: 95%;
+    padding: 10px;
+    background: #333;
+    border-radius: 4px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+/* Alt butonun düzeni */
+#bottomButtonContainer {
+    margin-top: 1rem;
+}
+
+button {
+    width: 150px; 
+    height: 40px; 
+    margin: 10px 5px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 1rem; 
+}
+
+button:hover {
+    background-color: #ff6f61;
+}
+
+input[type="text"], textarea {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1.2rem;
+    max-height: 200px;
+}
+
+textarea {
+    height: 300px;
+    resize: none;
+    font-size: 1.2rem;
+}
+
+/* Footer stilleri */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+h1 {
+    background-color: #000;
+    color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    width: fit-content;
+    margin: 20px auto;
+    background: url('https://images.pexels.com/photos/4551909/pexels-photo-4551909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center fixed;
+    height: 550px;
+    max-height: 550px;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Dikey yerleşim */
+        align-items: center; /* Ortala */
+    }
+    #historyContainer {
+        margin-left: 0; /* Kenardan ayırmayı kaldır */
+        width: 100%; /* Genişliği tam yap */
+    }
+}
+
+
+
+/* Çeviri sonuç alanı için sabit yükseklik */
+.translationResult {
+    min-height: 50px; /* Sonuç için minimum yükseklik */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff; /* Metin rengi */
+    margin-top: 10px; /* Diğer öğelerden ayırmak için boşluk */
+}
+
+
+input[type="text"] {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1.2rem;
+    flex-shrink: 0; /* Büyümeyi engelle */
+}
+
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    position: fixed; /* Footer'ı sabitler */
+    bottom: 0; /* Sayfanın en altına yerleştirir */
+    width: 100%; /* Tam genişlik */
+}
+
+
+#wordInput {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1.2rem;
+    align-self: flex-start; /* Sol üstte hizalama */
+}
