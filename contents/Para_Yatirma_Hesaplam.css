@@ -123,13 +123,11 @@ button:hover {
 
 
 footer {
+    text-align: center;
+    padding: 10px;
     background-color: #333;
     color: #fff;
-    text-align: center;
-    padding: 1rem 0;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-    margin-top: 2rem;
+    position: fixed; /* Footer'ı sabitler */
+    bottom: 0; /* Sayfanın en altına yerleştirir */
+    width: 100%; /* Tam genişlik */
 }
