@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Kar Hesaplayıcı</title>
+    <link rel="stylesheet" href="para.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Anasayfa</a></li>
+                <li><a href="../about.html">Hakkımda</a></li>
+                <li><a href="../coding.html">Kodlama</a></li>
+                <li><a href="../extra/extra.html">Extra</a></li>
+                <li><a href="https://github.com/EnesBurakPolat" target="_blank">Github</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Para Kar Hesaplayıcı</h1>
+        <div>
+            <p id="message">Lütfen bir işlem seçin:</p>
+            <select id="operation">
+                <option value="" disabled selected>İşlem Seçin</option>
+                <option value="1">Yatırılan Para</option>
+                <option value="2">İstenen Kar</option>
+                <option value="3">Döviz</option>
+                <option value="4">Piyasa Fiyatından</option>
+            </select>
+        </div>
+        <div id="inputs"></div>
+        <button id="calculate">Hesapla</button>
+        <div id="results" class="hidden">
+            <h2>Sonuçlar</h2>
+            <p id="profit"></p>
+            <p id="total"></p>
+            <p id="percentage"></p>
+        </div>
+        <canvas id="chart" class="hidden"></canvas>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="para.js"></script>
+
+    <footer>
+        <p>&copy; 2024 Enes Burak Polat Site</p>
+    </footer>
+</body>
+</html>
