@@ -1,0 +1,102 @@
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+header nav ul li {
+    display: inline-block;
+    margin: 0 1rem;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+    color: #ff6f61;
+}
+
+.container {
+    text-align: center;
+    background-color: #404040;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    margin: 20px auto;
+}
+
+input[type="file"] {
+    margin-bottom: 20px;
+}
+
+button {
+    margin: 10px;
+    padding: 10px;
+    background-color: #282828;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #505050;
+}
+
+.result p {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+
+
+
+
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    position: fixed; /* Footer'ı sabitler */
+    bottom: 0; /* Sayfanın en altına yerleştirir */
+    width: 100%; /* Tam genişlik */
+}
+
+
+
+
+h1 {
+    color: #ff6f61;         /* Yazı rengi */
+}
+
+input {
+    color: #ff6f61;         /* Yazı rengi */
+}
+
+p {
+    color: #ff6f61;         /* Yazı rengi */
+}
