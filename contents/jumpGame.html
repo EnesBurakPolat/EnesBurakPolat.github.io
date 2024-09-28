@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phaser Jumping Game</title>
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+            overflow: hidden;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header nav ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        header nav ul li {
+            display: inline-block;
+            margin: 0 1rem;
+        }
+
+        header nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        header nav ul li a:hover {
+            color: #ff6f61;
+        }
+
+        canvas {
+            display: block;
+            margin: 2rem auto;
+            max-width: 100%;
+            height: auto;
+        }
+
+        #score {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 20px;
+            color: #fff;
+        }
+
+        .button {
+            position: absolute;
+            width: 100px;
+            height: 50px;
+            background-color: #ff6f61;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            display: none; /* Başlangıçta gizli */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Anasayfa</a></li>
+                <li><a href="../about.html">Hakkımda</a></li>
+                <li><a href="../coding.html">Kodlama</a></li>
+                <li><a href="../extra/extra.html">Extra</a></li>
+                <li><a href="https://github.com/EnesBurakPolat" target="_blank">Github</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.js"></script>
+    <script>
+        const config = {
+            type: Phaser.AUTO,
+            width: 1200, // Oyun alanının genişliği artırıldı
+            height: 800, // Oyun alanının yüksekliği artırıldı
+            physics: {
+                default: 'arcade',
+                arcade: {
+                    gravity: { y: 600 },
+                    debug: false
+                }
+            },
+            scene: {
+                preload: preload,
+                create: create,
+                update: update
+            },
+            scale: {
+                mode: Phaser.Scale.FIT,
+                autoCenter: Phaser.Scale.CENTER_BOTH
+            }
+        };
+
+        const game = new Phaser.Game(config);
+
+        let player;
+        let platforms;
+        let cursors;
+        let score = 0;
+        let scoreText;
+
+        function preload() {
+            this.load.image('background', 'https://labs.phaser.io/assets/skies/space3.png');
+            this.load.image('platform', 'https://labs.phaser.io/assets/sprites/platform.png');
+            this.load.image('player', 'https://labs.phaser.io/assets/sprites/dude.png');
+        }
+
+        function create() {
+            this.add.image(600, 400, 'background'); // Arka plan konumunu güncelledik
+            platforms = this.physics.add.staticGroup();
+            platforms.create(600, 780, 'platform').setScale(2).refreshBody(); // Merkez 600 olarak güncellendi
+
+            for (let i = 0; i < 5; i++) {
+                let x = Phaser.Math.Between(100, 1100); // Genişliği 1100 olarak ayarladık
+                let y = 600 - i * 120;
+                let platform = platforms.create(x, y, 'platform');
+                platform.setScale(0.5).refreshBody();
+            }
+
+            player = this.physics.add.sprite(600, 600, 'player'); // Merkez 600 olarak güncellendi
+            player.setBounce(0.2);
+            player.setCollideWorldBounds(false); // Görünmez duvarı kaldırdık
+            this.physics.add.collider(player, platforms);
+            cursors = this.input.keyboard.createCursorKeys();
+            scoreText = this.add.text(10, 10, 'Score: 0', { fontSize: '20px', fill: '#fff' });
+
+            // Mobil kontrol butonları
+            createMobileControls.call(this);
+        }
+
+        function createMobileControls() {
+            const jumpButton = this.add.text(100, 700, 'Zıpla', { fontSize: '20px', fill: '#fff' }).setInteractive();
+            jumpButton.on('pointerdown', () => {
+                if (player.body.touching.down) {
+                    player.setVelocityY(-600);
+                }
+            });
+
+            const leftButton = this.add.text(10, 700, 'Sol', { fontSize: '20px', fill: '#fff' }).setInteractive();
+            leftButton.on('pointerdown', () => {
+                player.setVelocityX(-160);
+            });
+
+            const rightButton = this.add.text(200, 700, 'Sağ', { fontSize: '20px', fill: '#fff' }).setInteractive();
+            rightButton.on('pointerdown', () => {
+                player.setVelocityX(160);
+            });
+
+            // Butonları mobil uyumluluğa göre gizleme
+            if (this.scale.isFullscreen) {
+                jumpButton.setVisible(true);
+                leftButton.setVisible(true);
+                rightButton.setVisible(true);
+            } else {
+                jumpButton.setVisible(false);
+                leftButton.setVisible(false);
+                rightButton.setVisible(false);
+            }
+        }
+
+        function update() {
+            if (cursors.left.isDown) {
+                player.setVelocityX(-160);
+            } else if (cursors.right.isDown) {
+                player.setVelocityX(160);
+            } else {
+                player.setVelocityX(0);
+            }
+
+            // Zıplama yüksekliğini artır
+            if (cursors.up.isDown && player.body.touching.down) {
+                player.setVelocityY(-600);
+            }
+
+            if (player.y < 300) {
+                platforms.children.iterate(function (platform) {
+                    platform.y += 4;
+                    if (platform.y > 800) {
+                        platform.y = Phaser.Math.Between(-50, -10);
+                        platform.x = Phaser.Math.Between(100, 1100);
+                        score += 10;
+                        scoreText.setText('Score: ' + score);
+                    }
+                });
+            }
+
+            if (player.y > 800) {
+                this.physics.pause();
+                player.setTint(0xff0000);
+                scoreText.setText('Game Over! Score: ' + score);
+            }
+        }
+    </script>
+</body>
+</html>
