@@ -98,7 +98,6 @@ footer {
     margin-top: 2rem;
 }
 
-
 .about {
     max-width: 600px;
     margin: 2rem auto;
@@ -112,19 +111,23 @@ footer {
 /* Ana içerik bölümü için grid yapısı */
 .content {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* 250px genişliğinde kutular oluştur */
-    gap: 20px; /* Kareler arasında boşluk bırak */
-    padding: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 15px; /* 20px yerine 15px yapıyoruz */
+    padding: 10px; /* 20px yerine 10px yapıyoruz */
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 /* Her bir içerik kutusu */
 .content-item {
-    background-color: #f4f4f4; /* Kutunun arka plan rengi */
-    border: 1px solid #ddd; /* Kutunun kenarlıkları */
-    padding: 15px;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    padding: 15px; /* 25px yerine 15px yapıyoruz */
     text-align: center;
-    border-radius: 10px; /* Yuvarlatılmış köşeler */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
 }
 
 /* İçerik başlıkları */
@@ -136,22 +139,45 @@ footer {
 /* İçerik resimleri */
 .content-item img {
     max-width: 100%;
-    height: auto; /* Resimlerin orantılı şekilde küçültülmesi */
+    height: auto;
     margin-bottom: 10px;
+    align-self: center;
+}
+
+/* İçerik paragrafları */
+.content-item p {
+    flex-grow: 1;
+    margin: 10px 0; /* Paragraf üstü ve altına biraz boşluk ekliyoruz */
 }
 
 /* Devamını oku butonları */
 .content-item a {
     display: inline-block;
-    padding: 10px 15px;
+    padding: 8px 12px; /* Buton boyutunu biraz küçültüyoruz */
     background-color: #007BFF;
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s;
+    margin-top: 10px; /* Buton üstüne biraz boşluk ekliyoruz */
+    align-self: center;
 }
 
 /* Butona hover efekti */
 .content-item a:hover {
     background-color: #0056b3;
+}
+
+/* Responsive tasarım için medya sorgusu */
+@media (max-width: 1200px) {
+    .content-item {
+        flex-basis: calc(50% - 10px);
+        max-width: calc(50% - 10px);
+    }
+}
+
+@media (max-width: 768px) {
+    .content {
+        grid-template-columns: 1fr;
+    }
 }
