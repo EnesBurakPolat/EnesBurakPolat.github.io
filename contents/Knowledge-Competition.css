@@ -1,0 +1,187 @@
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+    background: url('https://w0.peakpx.com/wallpaper/790/908/HD-wallpaper-play-who-wants-to-be-a-millionaire-casino-game-online-for-real-for-your-mobile-tablet-explore-millionaire-background.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+header nav ul li {
+    display: inline-block;
+    margin: 0 1rem;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+    color: #ff6f61;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #ffffff;
+}
+
+
+p {
+    font-size: 18px; /* Yazı boyutunu belirleyin, örneğin 18px */
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ffffff;
+    text-align: center;
+}
+
+.quiz-container {
+    background-color: rgba(64, 64, 64, 0.8); /* %80 opaklık */
+    padding: 20px;
+    border-radius: 10px;
+    width: 60%;
+    margin: 20px auto; /* Üst ve alt boşluk ekledim */
+    text-align: center;
+}
+
+button {
+    background-color: #7121f1;
+    border: none;
+    color: white; /* Yazı rengini beyaz yaptım */
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px; /* Buton yazı boyutunu ayarladım */
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #2f26ac;
+    transform: translateY(-2px); /* Hoverda yukarı kaydırdım */
+}
+
+.hidden {
+    display: none;
+}
+
+.answer-btn {
+    display: block;
+    margin: 10px auto;
+    padding: 15px;
+    width: 50%;
+    transition: background-color 0.3s;
+}
+
+.answer-btn.correct {
+    background-color: rgb(15, 179, 15);
+}
+
+.answer-btn.incorrect {
+    background-color: red;
+}
+
+/* Kategori butonlarının tasarımı */
+#category-selection {
+    display: flex;
+    flex-wrap: wrap; /* Butonları alt satıra taşımak için */
+    justify-content: center; /* Ortalamak için */
+    margin: 20px auto; /* Üst ve alt boşluk */
+    max-width: 80%; /* Maksimum genişlik */
+    text-align: center; /* İçeriği ortala */
+}
+
+#category-selection h2 {
+    width: 100%; /* Başlık tam genişlikte olsun */
+    margin-bottom: 20px; /* Başlık ile butonlar arasında boşluk */
+}
+
+#category-selection button {
+    flex: 1 1 30%; /* Butonların genişliği ve yan yana yerleşimi */
+    max-width: 200px; /* Maksimum genişlik */
+}
+
+#overall-scores {
+    background-color: rgba(64, 64, 64, 0.8); /* %80 opaklık */
+    padding: 20px;
+    border-radius: 10px;
+    width: 60%;
+    margin: 20px auto;
+    text-align: center;
+}
+
+#overall-scores h2 {
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+#overall-category-scores {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+#overall-category-scores p {
+    flex-basis: 45%;
+    margin: 5px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+}
+
+/* CSS dosyasına eklenecek yeni stiller */
+
+#category-selection button.selected {
+    background-color: #ff6f61;
+    transform: scale(1.05);
+}
+
+#current-category {
+    color: #ff6f61;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+#overall-scores {
+    display: block;
+}
+
+#overall-scores.hidden {
+    display: none;
+}
+
+#end-quiz-btn, #reset-scores-btn {
+    background-color: #ff6f61;
+    color: white;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#end-quiz-btn:hover, #reset-scores-btn:hover {
+    background-color: #e55a4f;
+    transform: translateY(-2px);
+}

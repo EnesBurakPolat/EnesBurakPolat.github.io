@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bilgi Yarışması</title>
+    <link rel="stylesheet" href="Knowledge-Competition.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Anasayfa</a></li>
+                <li><a href="../about.html">Hakkımda</a></li>
+                <li><a href="../coding.html">Kodlama</a></li>
+                <li><a href="../extra/extra.html">Extra</a></li>
+                <li><a href="https://github.com/EnesBurakPolat" target="_blank">Github</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="quiz-container">
+        <h1>Bilgi Yarışması</h1>
+
+        <div id="category-selection">
+            <h2>Kategori Seçin</h2>
+            <button onclick="selectCategory('Müzik')">Müzik</button>
+            <button onclick="selectCategory('Sanat')">Sanat</button>
+            <button onclick="selectCategory('Bilim')">Bilim</button>
+            <button onclick="selectCategory('Matematik')">Matematik</button>
+            <button onclick="selectCategory('Spor')">Spor</button>
+            <button onclick="selectCategory('Video_Oyunları')">Video Oyunları</button>
+            <button onclick="selectCategory('Biyoloji')">Biyoloji</button>
+            <button onclick="selectCategory('Coğrafya')">Coğrafya</button>
+            <button onclick="selectCategory('Tarih')">Tarih</button>
+            <button onclick="selectCategory('Ülke')">Ülke</button>
+        </div>
+
+        <div id="quiz" class="hidden">
+            <h2 id="current-category"></h2>
+            <div id="question-container">
+                <p id="question"></p>
+                <button class="answer-btn" onclick="checkAnswer(0)">Cevap 1</button>
+                <button class="answer-btn" onclick="checkAnswer(1)">Cevap 2</button>
+                <button class="answer-btn" onclick="checkAnswer(2)">Cevap 3</button>
+                <button class="answer-btn" onclick="checkAnswer(3)">Cevap 4</button>
+                <p id="timer">Kalan Süre: <span id="time-left">120</span> saniye</p>
+            </div>
+            <button id="end-quiz-btn" onclick="endQuiz()">Yarışmayı Bitir</button>
+        </div>
+
+        <div id="scoreboard" class="hidden">
+            <h2>Kategori Skorları</h2>
+            <div id="category-scores"></div>
+            <h3>Toplam Skor</h3>
+            <div id="total-scores"></div>
+        </div>
+
+        <button id="end-btn" class="hidden" onclick="restartQuiz()">Ana Sayfaya Dön</button>
+    </div>
+
+    <div id="overall-scores">
+        <h2>Genel Skorlar</h2>
+        <div id="overall-category-scores"></div>
+        <button id="reset-scores-btn" onclick="resetAllScores()">Skorları Sıfırla</button>
+    </div>
+
+    <script src="Knowledge-Competition.js"></script>
+</body>
+</html>
