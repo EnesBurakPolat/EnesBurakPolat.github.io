@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,9 +14,20 @@
     </header>
     <main>
         <h1>Pacman Oyunu</h1>
-        <div id="gameArea">
-            <!-- Oyunun görseli buraya gelecek -->
-            <canvas id="gameCanvas" width="600" height="400"></canvas>
+        <div id="gameContainer">
+            <canvas id="gameCanvas" width="448" height="496"></canvas>
+            <div id="gameInfo">
+                <div id="score">Skor: <span id="scoreValue">0</span></div>
+                <div id="lives">Canlar: <span id="livesValue">3</span></div>
+            </div>
+        </div>
+        <div id="mobileControls">
+            <button id="upButton" class="control-button">&#9650;</button>
+            <div class="horizontal-controls">
+                <button id="leftButton" class="control-button">&#9664;</button>
+                <button id="rightButton" class="control-button">&#9654;</button>
+            </div>
+            <button id="downButton" class="control-button">&#9660;</button>
         </div>
     </main>
     <footer>
