@@ -165,6 +165,7 @@ function updateOverallScores() {
 }
 
 function startTimer() {
+    clearInterval(timerInterval); // Mevcut zamanlayıcıyı temizle
     updateTimerDisplay();
     timerInterval = setInterval(() => {
         timeLeft--;
@@ -186,6 +187,11 @@ function stopTimer() {
 }
 
 function selectCategory(category) {
+    if (currentCategory !== "" && currentQuestion < categories[currentCategory].length) {
+        alert("Lütfen mevcut kategoriyi bitirin veya 'Yarışmayı Bitir' butonuna tıklayın.");
+        return;
+    }
+
     document.querySelectorAll('#category-selection button').forEach(btn => {
         btn.classList.remove('selected');
     });
@@ -203,8 +209,9 @@ function selectCategory(category) {
     document.getElementById('overall-scores').classList.add('hidden');
     document.getElementById('current-category').textContent = `Kategori: ${category}`;
 
-    timeLeft = 120; // Süreyi sadece kategori seçildiğinde sıfırla
-    startTimer();
+    timeLeft = 120;
+    stopTimer(); // Mevcut zamanlayıcıyı durdur
+    startTimer(); // Yeni zamanlayıcıyı başlat
     loadQuestion();
 }
 
@@ -286,7 +293,9 @@ function restartQuiz() {
 }
 
 function endQuiz() {
+    stopTimer();
     showScore();
+    currentCategory = ""; // Kategoriyi sıfırla
 }
 
 function resetAllScores() {
