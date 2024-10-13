@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL Server (MSSQL) Eğitim</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .card-header {
+            background-color: #b89b1a;
+            color: white;
+        }
+        body {
+            background-color: #f8f9fa;
+        }
+        h1 {
+            color: #348f18;
+        }
+        pre code {
+            background-color: #343a40;
+            color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">SQL Server (MSSQL) Temel ve İleri Eğitim</h1>
+        
+        <!-- Bölüm: Giriş -->
+        <div class="card mb-4">
+            <div class="card-header">SQL Server'a Giriş</div>
+            <div class="card-body">
+                <p>SQL Server (MSSQL), Microsoft tarafından geliştirilen bir veritabanı yönetim sistemidir. Veri yönetimi ve sorgulama işlemlerinde yaygın olarak kullanılır.</p>
+                <pre><code>-- SQL Server Management Studio (SSMS) üzerinden bağlanma veya SQLCMD kullanarak bağlanma:
+sqlcmd -S sunucu_adı -U kullanıcı_adı -P şifre</code></pre>
+            </div>
+        </div>
+
+        <!-- Bölüm: Veritabanı Oluşturma -->
+        <div class="card mb-4">
+            <div class="card-header">Veritabanı Oluşturma</div>
+            <div class="card-body">
+                <p>Veritabanı oluşturmak için `CREATE DATABASE` komutu kullanılır.</p>
+                <pre><code>-- Veritabanı oluşturma
+CREATE DATABASE my_database;
+
+-- Veritabanını kullanma
+USE my_database;</code></pre>
+            </div>
+        </div>
+
+        <!-- Bölüm: Tablo Oluşturma -->
+        <div class="card mb-4">
+            <div class="card-header">Tablo Oluşturma</div>
+            <div class="card-body">
+                <p>Tablo oluşturmak için `CREATE TABLE` komutu kullanılır. Tablolar, veriyi organize etmek için sütunlarla tanımlanır.</p>
+                <pre><code>-- Tablo oluşturma
+CREATE TABLE employees (
+    employee_id INT IDENTITY(1,1) PRIMARY KEY,
+    name NVARCHAR(100) NOT NULL,
+    department NVARCHAR(50),
+    salary DECIMAL(10, 2)
+);</code></pre>
+            </div>
+        </div>
+
+        <!-- Bölüm: Veri Ekleme -->
+        <div class="card mb-4">
+            <div class="card-header">Veri Ekleme</div>
+            <div class="card-body">
+                <p>Veri eklemek için `INSERT INTO` komutu kullanılır.</p>
+                <pre><code>-- Veri ekleme
+INSERT INTO employees (name, department, salary)
+VALUES ('Ayşe Yılmaz', 'IT', 7500.00);</code></pre>
+            </div>
+        </div>
+
+        <!-- Bölüm: Veri Sorgulama -->
+        <div class="card mb-4">
+            <div class="card-header">Veri Sorgulama</div>
+            <div class="card-body">
+                <p>Veri sorgulamak için `SELECT` komutu kullanılır. Belirli bir tablodan veri çekilebilir.</p>
+                <pre><code>-- Veri sorgulama
+SELECT * FROM employees;
+
+-- Belirli sütunları sorgulama
+SELECT name, department FROM employees;</code></pre>
+            </div>
+        </div>
+
+        <!-- Bölüm: Güncelleme, Silme ve Drop -->
+        <div class="card mb-4">
+            <div class="card-header">Güncelleme, Silme ve Drop</div>
+            <div class="card-body">
+                <p>Veri güncelleme için `UPDATE`, veri silme için `DELETE` komutu kullanılır. Tabloyu veya veritabanını tamamen silmek için ise `DROP` komutu kullanılır.</p>
+                
+                <h3>Güncelleme</h3>
+                <pre><code>-- Veri güncelleme
+UPDATE employees
+SET salary = 8000.00
+WHERE name = 'Ayşe Yılmaz';</code></pre>
+
+                <h3>Silme</h3>
+                <pre><code>-- Veri silme
+DELETE FROM employees
+WHERE name = 'Ayşe Yılmaz';</code></pre>
+
+                <h3>DROP Komutu</h3>
+                <pre><code>-- Tabloyu tamamen silme (tüm veriler ve tablo yapısı silinir)
+DROP TABLE employees;
+
+-- Veritabanını tamamen silme (tüm tablolar ve veriler silinir)
+DROP DATABASE my_database;</code></pre>
+            </div>
+        </div>
+
+        <!-- Bölüm: İleri Komutlar -->
+        <div class="card mb-4">
+            <div class="card-header">İleri SQL Server Komutları</div>
+            <div class="card-body">
+                <h3>ALTER Kullanımı</h3>
+                <p>Var olan bir tabloyu değiştirmek için `ALTER` komutu kullanılır.</p>
+                <pre><code>-- Tabloya yeni sütun ekleme
+ALTER TABLE employees
+ADD hire_date DATE;
+
+-- Bir sütunu değiştirme
+ALTER TABLE employees
+ALTER COLUMN salary DECIMAL(12, 2);</code></pre>
+
+                <h3>JOIN Kullanımı</h3>
+                <p>İki veya daha fazla tabloyu birleştirmek için `JOIN` kullanılır.</p>
+                <pre><code>-- INNER JOIN kullanarak tablo birleştirme
+SELECT e.name, d.department_name
+FROM employees e
+INNER JOIN departments d ON e.department = d.department_id;</code></pre>
+
+                <h3>Gruplama ve Toplama</h3>
+                <p>Veri gruplama ve toplama işlemleri için `GROUP BY` ve `SUM`, `COUNT`, `AVG` gibi fonksiyonlar kullanılır.</p>
+                <pre><code>-- Maaşların departmana göre toplamı
+SELECT department, SUM(salary) as total_salary
+FROM employees
+GROUP BY department;</code></pre>
+
+                <h3>Alt Sorgular</h3>
+                <p>Bir sorguyu başka bir sorgu içinde çalıştırmak için alt sorgular kullanılır.</p>
+                <pre><code>-- Alt sorgu ile en yüksek maaşı sorgulama
+SELECT name, salary
+FROM employees
+WHERE salary = (SELECT MAX(salary) FROM employees);</code></pre>
+
+                <h3>Index Oluşturma</h3>
+                <p>Veritabanında performansı artırmak için index kullanılır.</p>
+                <pre><code>-- Index oluşturma
+CREATE INDEX idx_name_salary
+ON employees (name, salary);</code></pre>
+            </div>
+        </div>
+
+        <!-- Bölüm: MySQL Mülakat Soruları -->
+        <div class="card mb-4">
+            <div class="card-header">SQL Server Mülakat Soruları</div>
+            <div class="card-body">
+                <h3>Soru 1: SQL Server nedir?</h3>
+                <p>SQL Server, Microsoft tarafından geliştirilen bir ilişkisel veritabanı yönetim sistemidir (RDBMS).</p>
+                
+                <h3>Soru 2: `PRIMARY KEY` nedir?</h3>
+                <p>`PRIMARY KEY`, bir tablodaki her satırı benzersiz olarak tanımlayan bir sütun veya sütunlar grubudur.</p>
+
+                <h3>Soru 3: `JOIN` türleri nelerdir?</h3>
+                <p>`INNER JOIN`, `LEFT JOIN`, `RIGHT JOIN` ve `FULL JOIN` gibi farklı türde `JOIN` işlemleri vardır.</p>
+
+                <h3>Soru 4: SQL Server'da bir tabloyu yedeklemek için hangi komut kullanılır?</h3>
+                <p>Tabloyu yedeklemek için `BACKUP DATABASE` komutu kullanılır.</p>
+
+                <h3>Soru 5: SQL Server'da performansı nasıl artırabilirsiniz?</h3>
+                <p>Performansı artırmak için indeksler kullanılabilir, sorgu optimizasyonu yapılabilir ve veritabanı düzenli olarak bakıma alınabilir.</p>
+            </div>
+        </div>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
