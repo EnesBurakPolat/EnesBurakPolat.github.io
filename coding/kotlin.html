@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kotlin Eğitim</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .card-header {
+            background-color: #A97BFF; /* Kotlin'in ana rengi */
+            color: white;
+        }
+        body {
+            background-color: #F7F8FA; /* Hafif gri arka plan */
+        }
+        h1 {
+            color: #A97BFF; /* Kotlin rengi */
+        }
+        pre code {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Kotlin Temel ve Orta Seviye Eğitim</h1>
+        
+        <!-- Bölüm: Giriş -->
+        <div class="card mb-4">
+            <div class="card-header">Kotlin'e Giriş</div>
+            <div class="card-body">
+                <p>Kotlin, JVM (Java Virtual Machine) üzerinde çalışan modern ve açık kaynak bir programlama dilidir. Java ile tamamen uyumludur ve Android geliştirme için yaygın olarak kullanılır.</p>
+                <pre><code>fun main() {
+    println("Merhaba Kotlin!")
+}</code></pre>
+            </div>
+        </div>
+
+        <!-- Bölüm: Değişkenler ve Veri Tipleri -->
+        <div class="card mb-4">
+            <div class="card-header">Değişkenler ve Veri Tipleri</div>
+            <div class="card-body">
+                <p>Kotlin'de değişkenler `var` (değiştirilebilir) ve `val` (sabit) anahtar kelimeleri ile tanımlanır. Kotlin, veri tiplerini otomatik olarak çıkarır ancak istenirse açıkça belirtilebilir.</p>
+                <pre><code>var isim = "Ali"
+val yas = 30
+var dogruMu = true
+val kisi = mapOf("ad" to "Ali", "yas" to 30)</code></pre>
+            </div>
+        </div>
+
+        <!-- Bölüm: Karar Yapıları -->
+        <div class="card mb-4">
+            <div class="card-header">Karar Yapıları</div>
+            <div class="card-body">
+                <p>Kotlin'de `if-else` ve `when` yapıları karar verme mekanizmaları olarak kullanılır.</p>
+                <h3>If-Else</h3>
+                <pre><code>if (yas > 18) {
+    println("Yetişkin")
+} else {
+    println("Çocuk")
+}</code></pre>
+                <h3>When Yapısı</h3>
+                <pre><code>val sonuc = when (yas) {
+    in 0..17 -> "Çocuk"
+    18 -> "Yeni Yetişkin"
+    else -> "Yetişkin"
+}
+println(sonuc)</code></pre>
+            </div>
+        </div>
+
+        <!-- Bölüm: Döngüler -->
+        <div class="card mb-4">
+            <div class="card-header">Döngüler</div>
+            <div class="card-body">
+                <p>Kotlin'de döngüler, bir kod bloğunu tekrar tekrar çalıştırmak için kullanılır.</p>
+                <h3>For Döngüsü</h3>
+                <pre><code>for (i in 0..5) {
+    println(i)
+}</code></pre>
+                <h3>While Döngüsü</h3>
+                <pre><code>var i = 0
+while (i < 5) {
+    println(i)
+    i++
+}</code></pre>
+            </div>
+        </div>
+
+        <!-- Bölüm: Fonksiyonlar -->
+        <div class="card mb-4">
+            <div class="card-header">Fonksiyonlar</div>
+            <div class="card-body">
+                <p>Kotlin'de fonksiyonlar `fun` anahtar kelimesi ile tanımlanır ve belirli bir işlevi yerine getirir.</p>
+                <pre><code>fun selamla(isim: String): String {
+    return "Merhaba, $isim!"
+}
+
+println(selamla("Ali"))</code></pre>
+            </div>
+        </div>
+
+        <!-- Bölüm: Diziler ve Listeler -->
+        <div class="card mb-4">
+            <div class="card-header">Diziler ve Listeler</div>
+            <div class="card-body">
+                <p>Kotlin'de diziler ve listeler, birden fazla değeri saklamak için kullanılır. Listeler, mutable (değiştirilebilir) veya immutable (değiştirilemez) olabilir.</p>
+                <h3>Diziler</h3>
+                <pre><code>val meyveler = arrayOf("Elma", "Armut", "Muz")
+println(meyveler[0])  // Elma</code></pre>
+                <h3>Listeler</h3>
+                <pre><code>val sehirler = listOf("Ankara", "İstanbul", "İzmir")
+println(sehirler[1])  // İstanbul</code></pre>
+            </div>
+        </div>
+
+        <!-- Bölüm: Nesne Yönelimli Programlama (OOP) -->
+        <div class="card mb-4">
+            <div class="card-header">Nesne Yönelimli Programlama (OOP)</div>
+            <div class="card-body">
+                <p>Kotlin, nesne yönelimli programlamayı destekler. Sınıflar, özellikler ve metotlar tanımlayarak nesneler oluşturabilirsiniz.</p>
+                <pre><code>class Kisi(val ad: String, val yas: Int) {
+    fun tanit(): String {
+        return "Adım $ad ve yaşım $yas"
+    }
+}
+
+val kisi = Kisi("Ali", 30)
+println(kisi.tanit())</code></pre>
+            </div>
+        </div>
+
+        <!-- Bölüm: Hata Ayıklama ve İstisna Yönetimi -->
+        <div class="card mb-4">
+            <div class="card-header">Hata Ayıklama ve İstisna Yönetimi</div>
+            <div class="card-body">
+                <p>Kotlin'de istisna yönetimi `try`, `catch`, ve `finally` blokları ile yapılır. Hataları kontrol etmek ve programın çökmesini engellemek için kullanılır.</p>
+                <pre><code>try {
+    throw Exception("Bir hata oluştu!")
+} catch (e: Exception) {
+    println(e.message)
+} finally {
+    println("Hata yönetimi tamamlandı.")
+}</code></pre>
+            </div>
+        </div>
+
+        <!-- Bölüm: Kotlin Mülakat Soruları -->
+        <div class="card mb-4">
+            <div class="card-header">Kotlin Mülakat Soruları</div>
+            <div class="card-body">
+                <h3>Soru 1: Kotlin nedir?</h3>
+                <p>Kotlin, JVM üzerinde çalışan modern bir programlama dilidir ve özellikle Android geliştirme için kullanılır.</p>
+                
+                <h3>Soru 2: `var` ve `val` arasındaki fark nedir?</h3>
+                <p>`var` ile tanımlanan değişkenler değiştirilebilirken, `val` ile tanımlanan değişkenler sabittir ve ilk değer verildikten sonra değiştirilemez.</p>
+
+                <h3>Soru 3: Kotlin'de bir fonksiyon nasıl tanımlanır?</h3>
+                <p>Fonksiyonlar `fun` anahtar kelimesi ile tanımlanır. İsim, parametre listesi ve dönüş tipi içerir.</p>
+
+                <h3>Soru 4: Kotlin'de diziler ve listeler nasıl kullanılır?</h3>
+                <p>Diziler `arrayOf` ile, listeler ise `listOf` ile tanımlanır. Mutable listeler için `mutableListOf` kullanılır.</p>
+
+                <h3>Soru 5: Kotlin'de `when` yapısı ne işe yarar?</h3>
+                <p>`when` yapısı, koşul ifadelerinin daha temiz bir şekilde yazılmasını sağlar. `switch-case` yapısına benzer.</p>
+            </div>
+        </div>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
