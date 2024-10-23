@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Not Defteri</title>
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header nav ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        header nav ul li {
+            display: inline-block;
+            margin: 0 1rem;
+        }
+
+        header nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        header nav ul li a:hover {
+            color: #ff6f61;
+        }
+
+        textarea {
+            width: 80%; /* Genişliği %80'e ayarlandı */
+            height: 200px;
+            font-size: 16px;
+            padding: 10px;
+            margin: 20px auto; /* Yatayda ortalanması için auto ayarlandı */
+            display: block; /* Yatayda ortalamak için block yapıldı */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: none;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #333;
+            color: white;
+            border: none;
+            margin-top: 10px;
+            border-radius: 5px;
+            display: block; /* Yatayda ortalamak için block yapıldı */
+            margin-left: auto;
+            margin-right: auto; /* Yatayda ortalamak için auto ayarlandı */
+        }
+
+        .output {
+            margin-top: 20px;
+            background-color: #f0f0f0;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            max-height: 300px; /* Çıktı alanının yüksekliği */
+            overflow-y: auto; /* Dikey kaydırma çubuğunu etkinleştir */
+            text-align: center; /* Ortalamak için eklendi */
+        }
+
+        .font-style {
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 5px;
+            background-color: #fff;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Farklı font stilleri */
+        .font1 {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            font-size: 1.5em; /* Yazı boyutu */
+        }
+
+        .font2 {
+            font-family: 'Courier New', monospace;
+            font-size: 1.5em; /* Yazı boyutu */
+        }
+
+        .font3 {
+            font-family: 'Georgia', serif;
+            font-size: 1.5em; /* Yazı boyutu */
+        }
+
+        .font4 {
+            font-family: 'Impact', fantasy;
+            font-size: 1.5em; /* Yazı boyutu */
+        }
+
+        .font5 {
+            font-family: 'Lucida Console', monospace;
+            font-size: 1.5em; /* Yazı boyutu */
+        }
+
+        .font6 {
+            font-family: 'Arial Black', sans-serif;
+            font-size: 1.5em; /* Yazı boyutu */
+        }
+
+        .font7 {
+            font-family: 'Tahoma', sans-serif;
+            font-size: 1.5em; /* Yazı boyutu */
+        }
+
+        .font8 {
+            font-family: 'Trebuchet MS', sans-serif;
+            font-size: 1.5em; /* Yazı boyutu */
+        }
+
+        .font9 {
+            font-family: 'Verdana', sans-serif;
+            font-size: 1.5em; /* Yazı boyutu */
+        }
+
+        .font10 {
+            font-family: 'Times New Roman', serif;
+            font-size: 1.5em; /* Yazı boyutu */
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <ul>
+            <li><a href="../index.html">Anasayfa</a></li>
+            <li><a href="../about.html">Hakkımda</a></li>
+            <li><a href="../coding.html">Kodlama</a></li>
+            <li><a href="../extra/extra.html">Extra</a></li>
+            <li><a href="https://github.com/EnesBurakPolat" target="_blank">Github</a></li>
+        </ul>
+    </nav>
+</header>
+
+<textarea id="metin" placeholder="Metninizi buraya yazın..."></textarea>
+<button onclick="donustur()">Dönüştür</button>
+
+<div class="output" id="output"></div> <!-- Çıktı alanı metin kutusunun hemen altında -->
+
+<script>
+    function donustur() {
+        var metin = document.getElementById("metin").value.trim();
+        var outputDiv = document.getElementById("output");
+        outputDiv.innerHTML = ""; // Önceki çıktıyı temizle
+
+        if (metin) {
+            // Farklı font stilleriyle metni ekle
+            var fontStyles = ['font1', 'font2', 'font3', 'font4', 'font5', 'font6', 'font7', 'font8', 'font9', 'font10'];
+            fontStyles.forEach(function(font) {
+                var fontDiv = document.createElement("div");
+                fontDiv.className = "font-style " + font;
+                fontDiv.textContent = metin; // Metni ekle
+                outputDiv.appendChild(fontDiv); // Çıktı alanına ekle
+            });
+        } else {
+            outputDiv.innerHTML = "Lütfen bir metin girin.";
+        }
+    }
+</script>
+
+</body>
+</html>

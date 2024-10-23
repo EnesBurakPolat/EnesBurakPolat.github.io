@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Not Defteri</title>
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header nav ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        header nav ul li {
+            display: inline-block;
+            margin: 0 1rem;
+        }
+
+        header nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        header nav ul li a:hover {
+            color: #ff6f61;
+        }
+
+        textarea {
+            width: 100%;
+            height: 200px;
+            font-size: 16px;
+            padding: 10px;
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: none;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #333;
+            color: white;
+            border: none;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+
+        .output {
+            margin-top: 20px;
+            background-color: #f0f0f0;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            max-height: 300px; /* Çıktı alanının yüksekliği */
+            overflow-y: auto; /* Dikey kaydırma çubuğunu etkinleştir */
+        }
+
+        .not-box {
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 5px;
+            background-color: #fff;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <ul>
+            <li><a href="../index.html">Anasayfa</a></li>
+            <li><a href="../about.html">Hakkımda</a></li>
+            <li><a href="../coding.html">Kodlama</a></li>
+            <li><a href="../extra/extra.html">Extra</a></li>
+            <li><a href="https://github.com/EnesBurakPolat" target="_blank">Github</a></li>
+        </ul>
+    </nav>
+</header>
+
+<h1>Not Defteri</h1>
+<textarea id="notlar" placeholder="Notlarınızı buraya yazın..."></textarea>
+<button onclick="kaydet()">Notları Kaydet</button>
+
+<h2>Kaydedilen Notlar:</h2>
+<div id="output" class="output"></div>
+
+<script>
+    // Notları tarayıcının local storage'ına kaydet
+    function kaydet() {
+        var notlar = document.getElementById("notlar").value.trim(); // Boşlukları temizle
+        if (notlar) {
+            // Mevcut notları al
+            var mevcutNotlar = JSON.parse(localStorage.getItem("notlar")) || [];
+            mevcutNotlar.push(notlar); // Yeni notu ekle
+            localStorage.setItem("notlar", JSON.stringify(mevcutNotlar)); // Güncelle
+            document.getElementById("notlar").value = ""; // Yazma alanını temizle
+            goster(); // Kaydedilen notları güncelle
+            alert("Notlar kaydedildi!");
+        } else {
+            alert("Lütfen bir not yazın.");
+        }
+    }
+
+    // Kaydedilen notları sayfada göster
+    function goster() {
+        var kaydedilenNotlar = JSON.parse(localStorage.getItem("notlar")) || [];
+        var outputDiv = document.getElementById("output");
+        outputDiv.innerHTML = ""; // Önceki notları temizle
+        if (kaydedilenNotlar.length === 0) {
+            outputDiv.innerHTML = "Henüz bir not kaydedilmedi.";
+        } else {
+            kaydedilenNotlar.forEach(function(not) {
+                var notBox = document.createElement("div");
+                notBox.className = "not-box"; // Stil sınıfı ekle
+                notBox.textContent = not; // Not içeriğini ekle
+                outputDiv.appendChild(notBox); // Çıktı alanına ekle
+                // outputDiv.appendChild(document.createElement("br")); // Notlar arasında boşluk bırakmayı kaldırdık
+            });
+        }
+    }
+
+    // Sayfa yüklendiğinde kaydedilmiş notları getir
+    window.onload = function() {
+        goster(); // Notları sayfa yüklendiğinde de göster
+    }
+</script>
+
+</body>
+</html>
