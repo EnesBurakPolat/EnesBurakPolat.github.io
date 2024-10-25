@@ -154,7 +154,7 @@ footer {
 .content-item a {
     display: inline-block;
     padding: 8px 12px; /* Buton boyutunu biraz küçültüyoruz */
-    background-color: #007BFF;
+    background-color: #58a829;
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
@@ -165,7 +165,7 @@ footer {
 
 /* Butona hover efekti */
 .content-item a:hover {
-    background-color: #0056b3;
+    background-color: #d5715b;
 }
 
 /* Responsive tasarım için medya sorgusu */
