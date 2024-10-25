@@ -24,6 +24,11 @@
             <p>Bu GitHub Pages ile oluşturulmuş basit ama şık bir web sitesidir.</p>
         </section>
 
+        <!-- Arama çubuğu bölümü -->
+        <div class="search-bar">
+            <input type="text" id="searchInput" onkeyup="searchContent()" placeholder="İçerik başlıklarında ara...">
+        </div>
+
         <!-- İçeriklerin listeleneceği bölüm -->
         <section class="content">
             <h2>En son yazılar</h2>
@@ -125,5 +130,21 @@
     <footer>
         <p>&copy; 2024 Enes Burak Polat Site</p>
     </footer>
+
+    <script>
+        function searchContent() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const items = document.querySelectorAll('.content-item');
+            items.forEach(item => {
+                const title = item.querySelector('h3').innerText.toLowerCase();
+                if (title.includes(input)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+    </script>
+    
 </body>
 </html>
