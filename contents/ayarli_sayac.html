@@ -204,73 +204,86 @@
         <p>&copy; 2024 Enes Burak Polat Site</p>
     </footer>
 
-    <script>
-        let countdownInterval;
-        let targetDate;
+	<script>
+		let countdownInterval;
+		let targetDate;
 
-        // Sayfa yüklendiğinde tarih bilgisini al
-        window.onload = function() {
-            const savedDate = localStorage.getItem('targetDate');
-            if (savedDate) {
-                document.getElementById("targetDate").value = savedDate;
-                targetDate = new Date(savedDate).getTime();
-                if (targetDate > new Date().getTime()) {
-                    startCountdown(true); // Sayacı devam ettir
-                }
-            }
-        };
+		// Sayfa yüklendiğinde tarih bilgisini al
+		window.onload = function() {
+			const savedDate = localStorage.getItem('targetDate');
+			if (savedDate) {
+				document.getElementById("targetDate").value = savedDate;
+				targetDate = new Date(savedDate).getTime();
+				if (targetDate > new Date().getTime()) {
+					startCountdown(true); // Sayacı devam ettir
+				}
+			}
+		};
 
-        function startCountdown(continueCountdown = false) {
-            clearInterval(countdownInterval); // Önceki sayacı temizle
-            const targetDateInput = document.getElementById("targetDate").value;
+		function startCountdown(continueCountdown = false) {
+			clearInterval(countdownInterval); // Önceki sayacı temizle
+			const targetDateInput = document.getElementById("targetDate").value;
 
-            // Eğer yeni bir tarih girilmişse eski tarihi sil
-            if (targetDateInput) {
-                targetDate = new Date(targetDateInput).getTime();
-                localStorage.setItem('targetDate', targetDateInput);
-            } else {
-                targetDate = new Date(savedDate).getTime(); // Hafızadan tarihi al
-            }
+			// Eğer yeni bir tarih girilmişse eski tarihi sil
+			if (targetDateInput) {
+				targetDate = new Date(targetDateInput).getTime();
+				localStorage.setItem('targetDate', targetDateInput);
+				localStorage.setItem('initialTime', new Date().getTime());
+			} else if (!targetDate) {
+				return; // Tarih seçilmezse fonksiyonu sonlandır
+			}
 
-            if (targetDate < new Date().getTime()) {
-                alert("Lütfen geçerli bir tarih girin!");
-                return;
-            }
+			if (targetDate < new Date().getTime()) {
+				alert("Lütfen geçerli bir tarih girin!");
+				return;
+			}
 
-            countdownInterval = setInterval(() => {
-                const now = new Date().getTime();
-                const distance = targetDate - now;
+			countdownInterval = setInterval(() => {
+				const now = new Date().getTime();
+				const distance = targetDate - now;
 
-                // Hesaplama
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+				// Hesaplama
+				const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+				const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+				const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+				const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-                // Güncellemeleri sayfaya yaz
-                document.getElementById("days").innerHTML = days;
-                document.getElementById("hours").innerHTML = hours;
-                document.getElementById("minutes").innerHTML = minutes;
-                document.getElementById("seconds").innerHTML = seconds;
+				// Güncellemeleri sayfaya yaz
+				document.getElementById("days").innerHTML = days;
+				document.getElementById("hours").innerHTML = hours;
+				document.getElementById("minutes").innerHTML = minutes;
+				document.getElementById("seconds").innerHTML = seconds;
 
-                // İlerleme çubuğunu güncelle
-                const totalDuration = targetDate - new Date(localStorage.getItem('initialTime')).getTime();
-                const currentDuration = targetDate - distance;
-                const progressPercentage = (currentDuration / totalDuration) * 100;
-                document.getElementById("progressFill").style.width = progressPercentage + "%";
+				// İlerleme çubuğunu güncelle
+				const initialTime = new Date(parseInt(localStorage.getItem('initialTime')));
+				const totalDuration = targetDate - initialTime;
+				const elapsed = now - initialTime;
+				const progressPercentage = Math.min((elapsed / totalDuration) * 100, 100);
 
-                // Eğer geri sayım sona erdiyse
-                if (distance < 0) {
-                    clearInterval(countdownInterval);
-                    document.getElementById("countdown").innerHTML = "Geri sayım bitti!";
-                }
-            }, 1000);
-        }
+				document.getElementById("progressFill").style.width = progressPercentage + "%";
+				document.getElementById("progressFill").innerHTML = Math.round(progressPercentage) + "%";
 
-        function clearMemory() {
-            localStorage.removeItem('targetDate');
-            location.reload(); // Sayfayı yenileyerek hafızayı temizle
-        }
-    </script>
+				// Eğer geri sayım sona erdiyse
+				if (distance < 0) {
+					clearInterval(countdownInterval);
+					document.getElementById("countdown").innerHTML = "Geri sayım bitti!";
+				}
+			}, 1000);
+		}
+
+		function clearMemory() {
+			localStorage.removeItem('targetDate');
+			localStorage.removeItem('initialTime');
+			clearInterval(countdownInterval); // Geri sayımı durdur
+			document.getElementById("countdown").innerHTML = `
+				<div class="countdown-item"><span id="days">00</span> Gün</div>
+				<div class="countdown-item"><span id="hours">00</span> Saat</div>
+				<div class="countdown-item"><span id="minutes">00</span> Dakika</div>
+				<div class="countdown-item"><span id="seconds">00</span> Saniye</div>`;
+			document.getElementById("progressFill").style.width = "0%"; // İlerleme çubuğunu sıfırla
+			document.getElementById("progressFill").innerHTML = "0%"; // İlerleme yüzdesini sıfırla
+		}
+	</script>
+
 </body>
 </html>
