@@ -181,3 +181,16 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+
+
+
+.search-bar {
+    margin: 20px 0;
+    text-align: center;
+}
+.search-bar input {
+    padding: 10px;
+    width: 50%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
