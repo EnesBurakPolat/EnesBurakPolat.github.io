@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Çekiliş Sayfası</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header nav ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        header nav ul li {
+            display: inline-block;
+            margin: 0 1rem;
+        }
+
+        header nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        header nav ul li a:hover {
+            color: #ff6f61;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 80vh;
+        }
+
+        .drawing-container {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .drawing-container h1 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .drawing-container label,
+        .drawing-container input,
+        .drawing-container button {
+            display: block;
+            width: 100%;
+            max-width: 400px;
+            margin: 0.5rem auto;
+            font-size: 1rem;
+        }
+
+        .drawing-container input {
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .drawing-container button {
+            background-color: #ff6f61;
+            color: #fff;
+            padding: 0.8rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .drawing-container button:hover {
+            background-color: #e05547;
+        }
+
+        .winner-display {
+            margin-top: 1.5rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #ff6f61;
+        }
+        footer {
+            text-align: center;
+            padding: 1rem 0;
+            background-color: #333;
+            color: #fff;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            margin-top: 2rem;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Anasayfa</a></li>
+                <li><a href="../about.html">Hakkımda</a></li>
+                <li><a href="../coding.html">Kodlama</a></li>
+                <li><a href="../extra/extra.html">Extra</a></li>
+                <li><a href="https://github.com/EnesBurakPolat" target="_blank">Github</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="drawing-container">
+            <h1>Çekilişe Katılın!</h1>
+            <label for="participants">Katılımcı İsimleri (virgülle ayırarak):</label>
+            <input type="text" id="participants" placeholder="Örn: Ali, Ayşe, Mehmet">
+
+            <label for="numWinners">Kazanan Sayısı:</label>
+            <input type="number" id="numWinners" placeholder="Örn: 2">
+
+            <button id="drawButton">Çekilişi Başlat</button>
+            <div class="winner-display" id="winnerDisplay"></div>
+        </div>
+    </main>
+
+    <script>
+        document.getElementById('drawButton').addEventListener('click', function () {
+            const participantsInput = document.getElementById('participants').value;
+            const numWinnersInput = parseInt(document.getElementById('numWinners').value);
+
+            // Katılımcı isimlerini ayıkla ve boşlukları temizle
+            const participants = participantsInput.split(',').map(name => name.trim()).filter(name => name);
+
+            // Kazanan sayısı ve katılımcı listesi doğrulama
+            if (participants.length === 0) {
+                alert("Lütfen katılımcı isimlerini girin.");
+                return;
+            }
+            if (!numWinnersInput || numWinnersInput <= 0) {
+                alert("Lütfen geçerli bir kazanan sayısı girin.");
+                return;
+            }
+            if (numWinnersInput > participants.length) {
+                alert("Kazanan sayısı katılımcı sayısından fazla olamaz.");
+                return;
+            }
+
+            // Rastgele kazananları seç
+            const winners = [];
+            while (winners.length < numWinnersInput) {
+                const randomIndex = Math.floor(Math.random() * participants.length);
+                const winner = participants[randomIndex];
+                if (!winners.includes(winner)) {
+                    winners.push(winner);
+                }
+            }
+
+            // Sonucu göster
+            document.getElementById('winnerDisplay').innerText = `Kazanan(lar): ${winners.join(', ')}`;
+        });
+    </script>
+
+    <footer>
+        <p>&copy; 2024 Enes Burak Polat Site</p>
+    </footer>
+
+</body>
+</html>
