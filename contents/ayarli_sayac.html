@@ -91,6 +91,18 @@
             border-radius: 5px;
             border: none;
             margin: 5px;
+            cursor: pointer; /* Fare imlecinin el işareti olmasını sağlar */
+            transition: background-color 0.3s, transform 0.1s; /* Geçiş efekti ekle */
+        }
+
+        button:hover {
+            background-color: #08b622; /* Hover durumu için arka plan rengi */
+            color: white; /* Yazı rengini beyaz yap */
+        }
+
+        button:active {
+            transform: scale(0.95); /* Basıldığında butonu küçült */
+            background-color: #007f1a; /* Aktif durumda arka plan rengi */
         }
 
         header {
@@ -160,6 +172,7 @@
             <label for="targetDate">Bir bitiş tarihi seçin:</label>
             <input type="datetime-local" id="targetDate">
             <button onclick="startCountdown()">Başlat</button>
+            <button onclick="clearMemory()">Hafızayı Sil</button>
         </section>
 
         <div class="countdown" id="countdown">
@@ -193,47 +206,70 @@
 
     <script>
         let countdownInterval;
+        let targetDate;
 
-        function startCountdown() {
+        // Sayfa yüklendiğinde tarih bilgisini al
+        window.onload = function() {
+            const savedDate = localStorage.getItem('targetDate');
+            if (savedDate) {
+                document.getElementById("targetDate").value = savedDate;
+                targetDate = new Date(savedDate).getTime();
+                if (targetDate > new Date().getTime()) {
+                    startCountdown(true); // Sayacı devam ettir
+                }
+            }
+        };
+
+        function startCountdown(continueCountdown = false) {
             clearInterval(countdownInterval); // Önceki sayacı temizle
             const targetDateInput = document.getElementById("targetDate").value;
-            const targetDate = new Date(targetDateInput).getTime();
-            const startDate = new Date().getTime(); // Başlangıç tarihi
 
-            if (isNaN(targetDate) || targetDate <= startDate) {
-                alert("Lütfen ileri bir tarih seçin.");
+            // Eğer yeni bir tarih girilmişse eski tarihi sil
+            if (targetDateInput) {
+                targetDate = new Date(targetDateInput).getTime();
+                localStorage.setItem('targetDate', targetDateInput);
+            } else {
+                targetDate = new Date(savedDate).getTime(); // Hafızadan tarihi al
+            }
+
+            if (targetDate < new Date().getTime()) {
+                alert("Lütfen geçerli bir tarih girin!");
                 return;
             }
 
-            countdownInterval = setInterval(function() {
+            countdownInterval = setInterval(() => {
                 const now = new Date().getTime();
                 const distance = targetDate - now;
 
-                // Gün, saat, dakika ve saniyeyi hesapla
+                // Hesaplama
                 const days = Math.floor(distance / (1000 * 60 * 60 * 24));
                 const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                 const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
                 const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-                // HTML'de göster
-                document.getElementById("days").textContent = days;
-                document.getElementById("hours").textContent = hours;
-                document.getElementById("minutes").textContent = minutes;
-                document.getElementById("seconds").textContent = seconds;
+                // Güncellemeleri sayfaya yaz
+                document.getElementById("days").innerHTML = days;
+                document.getElementById("hours").innerHTML = hours;
+                document.getElementById("minutes").innerHTML = minutes;
+                document.getElementById("seconds").innerHTML = seconds;
 
-                // İlerleme çubuğu
-                const totalMilliseconds = targetDate - startDate;
-                const elapsedMilliseconds = totalMilliseconds - distance;
-                const progressPercentage = Math.min((elapsedMilliseconds / totalMilliseconds) * 100, 100);
-                document.getElementById("progressFill").style.width = `${progressPercentage}%`;
+                // İlerleme çubuğunu güncelle
+                const totalDuration = targetDate - new Date(localStorage.getItem('initialTime')).getTime();
+                const currentDuration = targetDate - distance;
+                const progressPercentage = (currentDuration / totalDuration) * 100;
+                document.getElementById("progressFill").style.width = progressPercentage + "%";
 
-                // Geri sayım tamamlandığında
+                // Eğer geri sayım sona erdiyse
                 if (distance < 0) {
                     clearInterval(countdownInterval);
-                    document.getElementById("countdown").innerHTML = "Hedef Tarih Geldi!";
-                    document.getElementById("progressFill").style.width = "100%";
+                    document.getElementById("countdown").innerHTML = "Geri sayım bitti!";
                 }
             }, 1000);
+        }
+
+        function clearMemory() {
+            localStorage.removeItem('targetDate');
+            location.reload(); // Sayfayı yenileyerek hafızayı temizle
         }
     </script>
 </body>
