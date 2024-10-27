@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header nav ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        header nav ul li {
+            display: inline-block;
+            margin: 0 1rem;
+        }
+
+        header nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        header nav ul li a:hover {
+            color: #ff6f61;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .input-group {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .input-group input {
+            flex: 1;
+            padding: 0.5rem;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .input-group button {
+            padding: 0.5rem 1rem;
+            background-color: #ff6f61;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .input-group button:hover {
+            background-color: #e05d50;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.5rem;
+            border-bottom: 1px solid #ddd;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            user-select: none;
+        }
+
+        ul li.checked {
+            text-decoration: line-through;
+            color: #aaa;
+        }
+
+        ul li:hover {
+            background-color: #f9f9f9;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <ul>
+            <li><a href="../index.html">Anasayfa</a></li>
+            <li><a href="../about.html">Hakkımda</a></li>
+            <li><a href="../coding.html">Kodlama</a></li>
+            <li><a href="../extra/extra.html">Extra</a></li>
+            <li><a href="https://github.com/EnesBurakPolat" target="_blank">Github</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="container">
+    <h2>To-Do List</h2>
+    <div class="input-group">
+        <input type="text" id="todoInput" placeholder="Yeni görev ekle...">
+        <button onclick="addTodo()">Ekle</button>
+        <button onclick="clearAllTodos()">Hepsini Sil</button>
+    </div>
+    <ul id="todoList"></ul>
+</div>
+
+<footer>
+    <p>&copy; 2024 Enes Burak Polat Site</p>
+</footer>
+
+<script>
+    let draggedItem = null;
+
+    // Sayfa yüklendiğinde tüm görevleri yükle
+    window.onload = loadTodos;
+
+    function addTodo() {
+        const todoInput = document.getElementById("todoInput");
+        const todoList = document.getElementById("todoList");
+
+        if (todoInput.value.trim() === "") return;
+
+        const listItem = createTodoElement(todoInput.value);
+        todoList.appendChild(listItem);
+        todoInput.value = "";
+
+        saveTodos(); // Yeni görev eklendikten sonra kaydet
+    }
+
+    function createTodoElement(text, checked = false) {
+        const listItem = document.createElement("li");
+
+        const taskText = document.createElement("span");
+        taskText.textContent = text;
+
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.checked = checked;
+        checkbox.onclick = () => {
+            listItem.classList.toggle("checked");
+            saveTodos();
+        };
+
+        listItem.appendChild(taskText);
+        listItem.appendChild(checkbox);
+        listItem.classList.toggle("checked", checked);
+
+        listItem.draggable = true;
+        listItem.ondragstart = () => {
+            draggedItem = listItem;
+            setTimeout(() => listItem.style.display = "none", 0);
+        };
+        listItem.ondragend = () => {
+            setTimeout(() => listItem.style.display = "flex", 0);
+            draggedItem = null;
+        };
+        listItem.ondragover = (e) => e.preventDefault();
+        listItem.ondrop = () => {
+            todoList.insertBefore(draggedItem, listItem.nextSibling);
+            saveTodos();
+        };
+
+        let startX;
+        listItem.ontouchstart = (e) => startX = e.touches[0].clientX;
+        listItem.ontouchmove = (e) => {
+            if (e.touches[0].clientX - startX < -50) {
+                todoList.removeChild(listItem);
+                saveTodos();
+            }
+        };
+
+        return listItem;
+    }
+
+    function saveTodos() {
+        const todos = [];
+        document.querySelectorAll("#todoList li").forEach((item) => {
+            todos.push({ text: item.querySelector("span").textContent, checked: item.classList.contains("checked") });
+        });
+        localStorage.setItem("todos", JSON.stringify(todos));
+    }
+
+    function loadTodos() {
+        const savedTodos = JSON.parse(localStorage.getItem("todos")) || [];
+        savedTodos.forEach((todo) => {
+            const listItem = createTodoElement(todo.text, todo.checked);
+            document.getElementById("todoList").appendChild(listItem);
+        });
+    }
+
+    function clearAllTodos() {
+        document.getElementById("todoList").innerHTML = "";
+        localStorage.removeItem("todos");
+    }
+</script>
+
+</body>
+</html>
