@@ -108,28 +108,30 @@ footer {
     line-height: 1.6;
 }
 
-/* Ana içerik bölümü için grid yapısı */
+/* content sınıfı için flexbox kullanımı */
 .content {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 15px; /* 20px yerine 15px yapıyoruz */
-    padding: 10px; /* 20px yerine 10px yapıyoruz */
-    max-width: 1400px;
-    margin: 0 auto;
+    display: flex; /* Flexbox yapısını kullan */
+    flex-wrap: wrap; /* Öğelerin yeni satırlara geçmesine izin ver */
+    justify-content: center; /* Öğeleri yatay olarak ortala */
+    gap: 15px; /* Öğeler arası boşluk */
+    padding: 10px; /* İçerik alanı */
+    max-width: 1400px; /* Maksimum genişlik */
+    margin: 0 auto; /* Ortalamak için margin ayarları */
 }
 
-/* Her bir içerik kutusu */
+/* Her bir içerik kutusu için */
 .content-item {
     background-color: #f4f4f4;
     border: 1px solid #ddd;
-    padding: 15px; /* 25px yerine 15px yapıyoruz */
-    text-align: center;
+    padding: 15px; /* İçerik kutusu içi boşluk */
+    text-align: center; /* Metni ortala */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
+    display: flex; /* Flexbox yapısını kullan */
+    flex-direction: column; /* Dikey yönlendirme */
+    align-items: center; /* Öğeleri yatayda ortala */
+    width: calc(46% - 15px); /* Üç sütunlu düzen için genişlik ayarı */
 }
-
 /* İçerik başlıkları */
 .content-item h3 {
     font-size: 1.2rem;
@@ -194,3 +196,69 @@ footer {
     border: 1px solid #ccc;
     border-radius: 5px;
 }
+
+
+
+
+
+
+
+/* Genel olarak mobil uyumluluk */
+@media (max-width: 768px) {
+    body {
+        font-size: 0.9rem; /* Metin boyutunu mobilde küçültme */
+        line-height: 1.4;
+    }
+
+    header nav ul li {
+        display: block;
+        margin: 0.5rem 0;
+    }
+
+    .hero {
+        padding: 4rem 1rem;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+    }
+
+    main {
+        padding: 1.5rem 1rem;
+        max-width: 90%;
+    }
+
+    .content {
+        grid-template-columns: 1fr; /* İçerikleri tek sütun yap */
+        gap: 10px;
+    }
+
+    .content-item {
+        padding: 10px;
+        margin: 5px 0;
+    }
+
+    .content-item h3 {
+        font-size: 1rem;
+    }
+
+    .content-item a {
+        padding: 6px 10px;
+    }
+
+    .search-bar input {
+        width: 80%; /* Arama çubuğunu genişlet */
+        padding: 8px;
+    }
+
+    footer {
+        padding: 0.5rem 0;
+    }
+}
+
+
+
