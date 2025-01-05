@@ -17,7 +17,7 @@ function countdown() {
         document.getElementById("seconds").innerHTML = seconds;
 
         // Toplam süreyi yeniden hesaplayalım
-        const totalMilliseconds = targetDate - new Date("Jan 1, 2024 00:00:00").getTime(); // Başlangıç tarihi
+        const totalMilliseconds = targetDate - new Date("Jan 1, 2025 00:00:00").getTime(); // Başlangıç tarihi
         const elapsedMilliseconds = totalMilliseconds - distance; // Geçen süre
         const elapsedSeconds = Math.floor(elapsedMilliseconds / 1000); // Geçen süreyi saniye cinsine çevir
         const totalDurationInSeconds = Math.floor(totalMilliseconds / 1000); // Toplam süreyi saniyeye çevir
