@@ -1,5 +1,5 @@
 function countdown() {
-    const targetDate = new Date("Jan 1, 2025 00:00:00").getTime(); // Hedef tarih
+    const targetDate = new Date("Jan 1, 2026 00:00:00").getTime(); // Hedef tarih
     const interval = setInterval(function() {
         const currentTime = new Date().getTime(); // Her saniye şu anki zamanı al
         const distance = targetDate - currentTime; // Hedef tarihe kalan süre (milisaniye)
