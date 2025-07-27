@@ -25,11 +25,14 @@
       background: var(--bg-color);
       color: var(--text-color);
       font-family: 'Segoe UI', sans-serif;
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+
+    .container {
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 40px 20px;
-      min-height: 100vh;
     }
 
     h1 {
@@ -61,8 +64,6 @@
       background: white;
       border-radius: 16px;
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-
-      /* 💥 Zorla ters çevirme (invert) işlemini engelle */
       filter: invert(0%) !important;
       -webkit-filter: invert(0%) !important;
     }
@@ -70,10 +71,26 @@
     canvas {
       display: block;
       margin: auto;
-
-      /* 💥 QR kodun ters çevrilmesini kesin engelle */
       filter: invert(0%) !important;
       -webkit-filter: invert(0%) !important;
+    }
+
+    .back-button {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background-color: #2563eb;
+      color: white;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .back-button:hover {
+      background-color: #1e40af;
     }
 
     @media (max-width: 480px) {
@@ -86,11 +103,15 @@
 </head>
 <body>
 
-  <h1>QR Kod Oluşturucu</h1>
+  <button class="back-button" onclick="history.back()">← Geri Dön</button>
 
-  <input type="text" id="text" placeholder="Metin veya bağlantı yazın..." oninput="updateQRCode()" />
+  <div class="container">
+    <h1>QR Kod Oluşturucu</h1>
 
-  <div id="qrcode"></div>
+    <input type="text" id="text" placeholder="Metin veya bağlantı yazın..." oninput="updateQRCode()" />
+
+    <div id="qrcode"></div>
+  </div>
 
   <script>
     const qrContainer = document.getElementById('qrcode');
@@ -106,7 +127,7 @@
           width: 256,
           height: 256,
           colorDark: "#000000",
-          colorLight: "#ffffff", // Beyaz zemin
+          colorLight: "#ffffff",
           correctLevel: QRCode.CorrectLevel.H
         });
       }
